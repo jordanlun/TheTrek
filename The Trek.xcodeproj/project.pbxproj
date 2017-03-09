@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7764F1C6269C40054D8BE /* AppDelegate.swift */; };
+		3EC776521C6269C40054D8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776511C6269C40054D8BE /* ViewController.swift */; };
+		3EC776551C6269C40054D8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC776531C6269C40054D8BE /* Main.storyboard */; };
+		3EC776581C6269C40054D8BE /* The_Trek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776561C6269C40054D8BE /* The_Trek.xcdatamodeld */; };
+		3EC7765A1C6269C40054D8BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EC776591C6269C40054D8BE /* Assets.xcassets */; };
+		3EC7765D1C6269C40054D8BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC7765B1C6269C40054D8BE /* LaunchScreen.storyboard */; };
+		3EC776681C6269C50054D8BE /* The_TrekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776671C6269C50054D8BE /* The_TrekTests.swift */; };
+		3EC776731C6269C50054D8BE /* The_TrekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776721C6269C50054D8BE /* The_TrekUITests.swift */; };
+		3EFB7C6B1E60BA8200F05909 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */; };
+		3EFB7C6D1E60BA8600F05909 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3EC776641C6269C50054D8BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EC776441C6269C40054D8BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EC7764B1C6269C40054D8BE;
+			remoteInfo = "The Trek";
+		};
+		3EC7766F1C6269C50054D8BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3EC776441C6269C40054D8BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3EC7764B1C6269C40054D8BE;
+			remoteInfo = "The Trek";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
+		3EC7764C1C6269C40054D8BE /* The Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC7764F1C6269C40054D8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3EC776511C6269C40054D8BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3EC776541C6269C40054D8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3EC776571C6269C40054D8BE /* The_Trek.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = The_Trek.xcdatamodel; sourceTree = "<group>"; };
+		3EC776591C6269C40054D8BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3EC7765C1C6269C40054D8BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3EC7765E1C6269C40054D8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EC776631C6269C50054D8BE /* The TrekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The TrekTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC776671C6269C50054D8BE /* The_TrekTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_TrekTests.swift; sourceTree = "<group>"; };
+		3EC776691C6269C50054D8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EC7766E1C6269C50054D8BE /* The TrekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "The TrekUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC776721C6269C50054D8BE /* The_TrekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_TrekUITests.swift; sourceTree = "<group>"; };
+		3EC776741C6269C50054D8BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3EC776491C6269C40054D8BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC776601C6269C50054D8BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC7766B1C6269C50054D8BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EC776431C6269C40054D8BE = {
+			isa = PBXGroup;
+			children = (
+				3EC7764E1C6269C40054D8BE /* The Trek */,
+				3EC776661C6269C50054D8BE /* The TrekTests */,
+				3EC776711C6269C50054D8BE /* The TrekUITests */,
+				3EC7764D1C6269C40054D8BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3EC7764D1C6269C40054D8BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3EC7764C1C6269C40054D8BE /* The Trek.app */,
+				3EC776631C6269C50054D8BE /* The TrekTests.xctest */,
+				3EC7766E1C6269C50054D8BE /* The TrekUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3EC7764E1C6269C40054D8BE /* The Trek */ = {
+			isa = PBXGroup;
+			children = (
+				3EC7764F1C6269C40054D8BE /* AppDelegate.swift */,
+				3EC776511C6269C40054D8BE /* ViewController.swift */,
+				3EC776531C6269C40054D8BE /* Main.storyboard */,
+				3EC776591C6269C40054D8BE /* Assets.xcassets */,
+				3EC7765B1C6269C40054D8BE /* LaunchScreen.storyboard */,
+				3EC7765E1C6269C40054D8BE /* Info.plist */,
+				3EC776561C6269C40054D8BE /* The_Trek.xcdatamodeld */,
+				3EFB7C661E60BA1D00F05909 /* Resources */,
+			);
+			path = "The Trek";
+			sourceTree = "<group>";
+		};
+		3EC776661C6269C50054D8BE /* The TrekTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EC776671C6269C50054D8BE /* The_TrekTests.swift */,
+				3EC776691C6269C50054D8BE /* Info.plist */,
+			);
+			path = "The TrekTests";
+			sourceTree = "<group>";
+		};
+		3EC776711C6269C50054D8BE /* The TrekUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3EC776721C6269C50054D8BE /* The_TrekUITests.swift */,
+				3EC776741C6269C50054D8BE /* Info.plist */,
+			);
+			path = "The TrekUITests";
+			sourceTree = "<group>";
+		};
+		3EFB7C661E60BA1D00F05909 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3EFB7C671E60BA2800F05909 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3EFB7C671E60BA2800F05909 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */,
+				3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3EC7764B1C6269C40054D8BE /* The Trek */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EC776771C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The Trek" */;
+			buildPhases = (
+				3EC776481C6269C40054D8BE /* Sources */,
+				3EC776491C6269C40054D8BE /* Frameworks */,
+				3EC7764A1C6269C40054D8BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "The Trek";
+			productName = "The Trek";
+			productReference = 3EC7764C1C6269C40054D8BE /* The Trek.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3EC776621C6269C50054D8BE /* The TrekTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EC7767A1C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The TrekTests" */;
+			buildPhases = (
+				3EC7765F1C6269C50054D8BE /* Sources */,
+				3EC776601C6269C50054D8BE /* Frameworks */,
+				3EC776611C6269C50054D8BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EC776651C6269C50054D8BE /* PBXTargetDependency */,
+			);
+			name = "The TrekTests";
+			productName = "The TrekTests";
+			productReference = 3EC776631C6269C50054D8BE /* The TrekTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3EC7766D1C6269C50054D8BE /* The TrekUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EC7767D1C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The TrekUITests" */;
+			buildPhases = (
+				3EC7766A1C6269C50054D8BE /* Sources */,
+				3EC7766B1C6269C50054D8BE /* Frameworks */,
+				3EC7766C1C6269C50054D8BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EC776701C6269C50054D8BE /* PBXTargetDependency */,
+			);
+			name = "The TrekUITests";
+			productName = "The TrekUITests";
+			productReference = 3EC7766E1C6269C50054D8BE /* The TrekUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3EC776441C6269C40054D8BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Jordan Lunsford";
+				TargetAttributes = {
+					3EC7764B1C6269C40054D8BE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = KDWFKVYU8J;
+						LastSwiftMigration = 0810;
+					};
+					3EC776621C6269C50054D8BE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QCB3X939WB;
+						LastSwiftMigration = 0810;
+						TestTargetID = 3EC7764B1C6269C40054D8BE;
+					};
+					3EC7766D1C6269C50054D8BE = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = QCB3X939WB;
+						LastSwiftMigration = 0810;
+						TestTargetID = 3EC7764B1C6269C40054D8BE;
+					};
+				};
+			};
+			buildConfigurationList = 3EC776471C6269C40054D8BE /* Build configuration list for PBXProject "The Trek" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3EC776431C6269C40054D8BE;
+			productRefGroup = 3EC7764D1C6269C40054D8BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3EC7764B1C6269C40054D8BE /* The Trek */,
+				3EC776621C6269C50054D8BE /* The TrekTests */,
+				3EC7766D1C6269C50054D8BE /* The TrekUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EC7764A1C6269C40054D8BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC7765D1C6269C40054D8BE /* LaunchScreen.storyboard in Resources */,
+				3EFB7C6B1E60BA8200F05909 /* Raleway-MediumItalic.ttf in Resources */,
+				3EFB7C6D1E60BA8600F05909 /* Raleway-Light.ttf in Resources */,
+				3EC7765A1C6269C40054D8BE /* Assets.xcassets in Resources */,
+				3EC776551C6269C40054D8BE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC776611C6269C50054D8BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC7766C1C6269C50054D8BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3EC776481C6269C40054D8BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC776521C6269C40054D8BE /* ViewController.swift in Sources */,
+				3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */,
+				3EC776581C6269C40054D8BE /* The_Trek.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC7765F1C6269C50054D8BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC776681C6269C50054D8BE /* The_TrekTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EC7766A1C6269C50054D8BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EC776731C6269C50054D8BE /* The_TrekUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3EC776651C6269C50054D8BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EC7764B1C6269C40054D8BE /* The Trek */;
+			targetProxy = 3EC776641C6269C50054D8BE /* PBXContainerItemProxy */;
+		};
+		3EC776701C6269C50054D8BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3EC7764B1C6269C40054D8BE /* The Trek */;
+			targetProxy = 3EC7766F1C6269C50054D8BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3EC776531C6269C40054D8BE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EC776541C6269C40054D8BE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3EC7765B1C6269C40054D8BE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3EC7765C1C6269C40054D8BE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3EC776751C6269C50054D8BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EC776761C6269C50054D8BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3EC776781C6269C50054D8BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KDWFKVYU8J;
+				INFOPLIST_FILE = "The Trek/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3EC776791C6269C50054D8BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = KDWFKVYU8J;
+				INFOPLIST_FILE = "The Trek/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3EC7767B1C6269C50054D8BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "The TrekTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Trek.app/The Trek";
+			};
+			name = Debug;
+		};
+		3EC7767C1C6269C50054D8BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "The TrekTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Trek.app/The Trek";
+			};
+			name = Release;
+		};
+		3EC7767E1C6269C50054D8BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "The TrekUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "The Trek";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		3EC7767F1C6269C50054D8BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "The TrekUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "The Trek";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3EC776471C6269C40054D8BE /* Build configuration list for PBXProject "The Trek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EC776751C6269C50054D8BE /* Debug */,
+				3EC776761C6269C50054D8BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EC776771C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The Trek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EC776781C6269C50054D8BE /* Debug */,
+				3EC776791C6269C50054D8BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EC7767A1C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The TrekTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EC7767B1C6269C50054D8BE /* Debug */,
+				3EC7767C1C6269C50054D8BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EC7767D1C6269C50054D8BE /* Build configuration list for PBXNativeTarget "The TrekUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EC7767E1C6269C50054D8BE /* Debug */,
+				3EC7767F1C6269C50054D8BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3EC776561C6269C40054D8BE /* The_Trek.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3EC776571C6269C40054D8BE /* The_Trek.xcdatamodel */,
+			);
+			currentVersion = 3EC776571C6269C40054D8BE /* The_Trek.xcdatamodel */;
+			path = The_Trek.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3EC776441C6269C40054D8BE /* Project object */;
+}
