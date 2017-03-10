@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.2
+//  The Trek v. 0.2.1.1
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -8,15 +8,17 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 0.2.2:
+//Update Notes v. 0.2.1.1:
 //  Removed dead time on app launch
 //  First game over now only prompts, "Try Again"
 //  Story tweaks
 
 
 //Submission
-//  forceNewGame = false, fastVersion = false
 //  Remove unneeded fonts, images, UI elements
+//  Check:
+//    forceNewGame = false, fastVersion = false
+//    Info.plist "MinimumOSVersion"
 
 //  App Store:
 //    Remove "Check for new version" (viewDidLoad, viewDidAppear)
@@ -652,7 +654,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		
 		//MARK - Check for new version
-		gameVersion = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!
+		
+		let versionNumber = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!
+		let buildVersion = (Bundle.main.infoDictionary?["CFBundleVersion"] as? String)!
+		
+		gameVersion = "\(versionNumber)|\(buildVersion)"
 		
 		if history.object(forKey: "gameVersion") != nil {
 			savedGameVersion = (history.object(forKey: "gameVersion")! as! NSArray)[0] as! String
@@ -719,7 +725,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			"Let me start at the beginning",
 			"My name is Ben", //KEY (2)
 			"A few days ago I came over to Pakistan on a business trip",
-			"I love mountains, so when my meetings were over I decided to take a couple days off and see some",
+			"I love mountains, so when my meetings were over I decided to take a couple days off to go see some",
 			"I found this little travel agency with helicopter tours and hired one to fly me up north",
 			"As we were nearing Gil--",
 			"[SYS|Static",
@@ -758,7 +764,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			"I finally got restless and began to search the wreck for a radio or something",
 			"Lucky this backpack was in here",
 			"That's where I found this satellite phone . . . also a few extra batteries, canned food, some water, and a compass",
-			"I guess the pack's here in case of emergencies",
+			"I guess the pack's in here in case of emergencies",
 			"[WAIT|1",
 			"I'm pretty sure this qualifies as an emergency",
 			"[RESPONSE|How's your\nfood supply?|1|Where are you?|That is a good question",
@@ -772,7 +778,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			"That is a good question", //KEY
 			"I'm somewhere in the vicinity of Gilgit",
 			". . . somewhere east of the city",
-			"For all I know though, I could be twenty miles away, or a hundred",
+			"For all I know though, I could be twenty miles away . . . or a hundred",
 			"[WAIT|1",
 			"So, what are the chances of another helicopter coming by to pick me up?",
 			"[RESPONSE|Not good|1|Jack?|1",
