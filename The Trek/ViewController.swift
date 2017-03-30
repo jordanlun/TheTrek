@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.1.1
+//  The Trek v. 0.2.2, Build 1
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -8,7 +8,8 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 0.2.1.1:
+//Update Notes v. 0.2.2:
+//  Submitted to TestFlight
 //  Removed dead time on app launch
 //  First game over now only prompts, "Try Again"
 //  Story tweaks
@@ -278,7 +279,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				//print("First message|\(messageDelayTime)")
 			} else {
 				//print("messageDelayTime: \(messageDelayTime)")
-				messageDelayTime = 2.0 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/34.0
+				messageDelayTime = 2.5 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/35.0
 			}
 		}
 		
@@ -287,7 +288,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			if messagesViewed[messagesViewed.count - 1] == "Ben is busy" {
 				messageDelayTime = 0.1
 			} else if messageTypes[messageTypes.count - 1] == "RESPONSE" && fastVersion != true {
-				messageDelayTime = 2
+				messageDelayTime = 2.5
 			}
 		}
 	
@@ -576,25 +577,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//SYS
 		if messageTypes[indexPath.row] == "SYS" {
 			cell.textLabel!.text = "[\(contentForCell)]"
-			//cell.textLabel!.textColor = UIColor(red: 76/255, green: 116/225, blue: 0, alpha: 1.0) // GREEN
-			cell.textLabel!.textColor = UIColor(red: 150/255, green: 220/255, blue: 150/255, alpha: 1.0) // L. GREEN
+			cell.textLabel!.textColor = UIColor(red: 150/255, green: 220/255, blue: 150/255, alpha: 1.0)
 			cell.textLabel!.textAlignment = NSTextAlignment.center
 		
 		//RESPONSE
 		} else if messageTypes[indexPath.row] == "RESPONSE" {
 			contentForCell = contentForCell.replacingOccurrences(of: "\n", with: " ")
 			cell.textLabel!.text = contentForCell
-			//cell.textLabel!.textColor = UIColor(red: 74/255, green: 170/255, blue: 201/255, alpha: 1.0)  // BLUE
-			cell.textLabel!.textColor = UIColor(red: 60/255, green: 172/255, blue: 155/255, alpha: 1.0)  // TEAL
-			//cell.textLabel!.textColor = UIColor(red: 238/255, green: 139/255, blue: 3/255, alpha: 1.0)  // ORANGE
+			cell.textLabel!.textColor = UIColor(red: 60/255, green: 172/255, blue: 155/255, alpha: 1.0)
 			cell.textLabel!.textAlignment = NSTextAlignment.right
 		
 		//RESEARCH
 		} else if messageTypes[indexPath.row] == "RESEARCH" {
 			cell.textLabel!.text = contentForCell
-			//cell.textLabel!.textColor = UIColor(red: 80/255, green: 170/255, blue: 80/255, alpha: 1.0) // GREEN
-			cell.textLabel!.textColor = UIColor(red: 150/255, green: 220/255, blue: 150/255, alpha: 1.0) // L. GREEN
-			//cell.textLabel!.textColor = UIColor(red: 74/255, green: 170/255, blue: 201/255, alpha: 1.0) // BLUE
+			cell.textLabel!.textColor = UIColor(red: 150/255, green: 220/255, blue: 150/255, alpha: 1.0)
 			
 		//MESSAGE
 		} else {
@@ -725,8 +721,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			"Let me start at the beginning",
 			"My name is Ben", //KEY (2)
 			"A few days ago I came over to Pakistan on a business trip",
-			"I love mountains, so when my meetings were over I decided to take a couple days off to go see some",
-			"I found this little travel agency with helicopter tours and hired one to fly me up north",
+			"I love the mountains, so when my meetings were over I decided to take a couple days off to go find some",
+			"I found a travel agency with helicopter tours and hired one to fly me up north",
 			"As we were nearing Gil--",
 			"[SYS|Static",
 			"[WAIT|1.5",
@@ -738,18 +734,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			"Yeah, there's quite a storm out there",
 			"I'm fine for now",
 			"I'm taking shelter in the helicopter wreckage",
-			"It's getting real chilly in here though",
+			"It's getting real cold in here though",
 			"[RESPONSE|What happened?|1|Wreckage?|1",
 			"Oh, so as we were nearing Gilgit, I asked him to take me on a quick pass over one of the ranges--the Karakoram I think he called it", //KEY
-			"He told me it was getting late and that the wind was starting to pick up, and kept flying towards Gilgit",
-			"But . . . it is Pakistan after all.",
-			"There's not much you can't do with a bit of cash",
+			"But he told me it was getting late and that the wind was starting to pick up, and said we needed to land in Gilgit",
+			"It is Pakistan after all, however . . . there isn't much you can't do with a bit of cash",
+			"[WAIT|1.5",
+			"But we should not have kept going.",
+			"That was a mistake",
 			"[WAIT|1",
-			"We should not have kept going",
-			"[WAIT|1",
-			"By the time we realized it we were dealing with a full on blizzard, and by then it was too late to do anything",
-			"The wind knocked the chopper off balance, and we fell",
-			"[WAIT|1",
+			"Soon we were dealing with a full on blizzard, and by that time it was too late to do anything",
+			"Suddenly the chopper rocked sideways and we fell",
+			"[WAIT|1.5",
 			"The pilot . . . he's dead",
 			"His restraint didn't hold up and I think he hit his head",
 			"There's a . . . a lot of blood",
