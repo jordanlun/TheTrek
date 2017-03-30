@@ -10,6 +10,7 @@
 
 //Update Notes v. 0.2.2:
 //  Submitted to TestFlight
+//  Fluid story updates
 //  Updates no longer reset story progression
 //  Removed dead time on app launch
 //  First game over now only prompts, "Try Again"
@@ -101,8 +102,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	let fastVersion = true
 
 	var betaProgressReset = false
-	var storyVersion = String()
 	var gameVersion = String()
+	var savedGameVersion = String()
 	var newGameForBeta = false
 	
 	var messageList = [String]()
@@ -407,9 +408,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 				self.isGameOver = false
 				
-				//MARK: If new game, setStoryVersion
+				//MARK: If new game, setMessageList
 				if self.messageIndex == -1 {
-					self.setStoryVersion()
+					self.setMessageList()
 				}
 				
 				self.saveGame()
@@ -438,7 +439,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 					
 					self.isGameOver = false
 					
-					self.setStoryVersion()
+					self.setMessageList()
 					
 					self.saveGame()
 					self.table.reloadData()
@@ -510,36 +511,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	func alert(title : String, message : String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-		
-		alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in
-			
-		}))
-		
+		alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in }))
 		self.present(alert, animated: true, completion: nil)
 	}
 	
 	
-	func setStoryVersion() {
-		storyVersion = gameVersion
-		self.history.set([self.storyVersion], forKey: "storyVersion")
-		setMessageList()
-	}
-	
 	func setMessageList() {
-		if storyVersion == "0.2.1|1" {
-			messageList = messageList_0_2_1__1
-			
-		} else if storyVersion == "0.2.1|3" {
-			messageList = messageList_0_2_1__3
-			
-		} else if storyVersion == "0.2.2|1" {
-			messageList = messageList_0_2_2__1
-			
-			
-		} else { //Error
-			print("messageList Error")
-			messageList = messageList_0_2_2__1 //Latest
-		}
+		messageList = masterMessageList
+		//messageList = testMessageList
+		
+		history.removeObject(forKey: "messageList")
+		history.set(messageList, forKey: "messageList")
 	}
 	
 	
@@ -685,40 +667,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		var newData = NSEntityDescription.insertNewObjectForEntityForName("Data", inManagedObjectContext: context) as NSManagedObject*/
 		
 		
-		//MARK - Detect gameVersion
+		//MARK - Detect Game Update
 		let versionNumber = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!
 		let buildVersion = (Bundle.main.infoDictionary?["CFBundleVersion"] as? String)!
 		gameVersion = "\(versionNumber)|\(buildVersion)"
-		
-		
-		//MARK - If not brand-new game and in beta stage, check for new version
-		if history.object(forKey: "history") != nil {
-			if history.object(forKey: "storyVersion") != nil { //If storyVersion exists
-				let savedStoryVersion = (history.object(forKey: "storyVersion")! as! NSArray)[0] as! String
-				if betaProgressReset == true && gameVersion != savedStoryVersion {
-					newGameForBeta = true
-				} else {
-					newGameForBeta = false
-				}
-			} else { //If storyVersion does not exist. Only true when upgrading from 0.2.1 to 0.2.2
-				betaProgressReset = true
+
+		if history.object(forKey: "gameVersion") != nil {
+			savedGameVersion = (history.object(forKey: "gameVersion")! as! NSArray)[0] as! String
+			if gameVersion != savedGameVersion && betaProgressReset == true {
 				newGameForBeta = true
-				setStoryVersion()
+			} else {
+				newGameForBeta = false
 			}
 		}
-
+		
+		history.set([gameVersion], forKey: "gameVersion")
+		
+		
+		//MARK - Override newGameForBeta if no savedMessageList (v1.2.1)
+		if history.object(forKey: "messageList") == nil {
+			newGameForBeta = true
+			betaProgressReset = true
+		}
 		
 		
 		//MARK - New Game
 		if newGameForBeta == true || forceNewGame == true || history.object(forKey: "history") == nil {
 			
 			history.removeObject(forKey: "history")
+			history.removeObject(forKey: "messageList")
 			history.removeObject(forKey: "messagePath")
 			history.removeObject(forKey: "messageTypes")
 			history.removeObject(forKey: "isGameOver")
 			history.removeObject(forKey: "savedBenBusyTimer")
 			
-			setStoryVersion()
+			setMessageList()
 			
 			
 		//MARK - Load Game
@@ -731,12 +714,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			
 			messagesViewed = savedDataList
 			
+			messageList = (history.object(forKey: "messageList")! as! NSArray) as! [String]
+			
 			messageTypes = (history.object(forKey: "messageTypes")! as! NSArray)[0] as! [String]
 			messagePath = (history.object(forKey: "messagePath")! as! NSArray)[0] as! [String]
 			
 			isGameOver = (history.object(forKey: "isGameOver")! as! NSArray)[0] as! Bool
 			
-			storyVersion = (history.object(forKey: "storyVersion")! as! NSArray)[0] as! String
+			
 			
 			//table.reloadData()   <<<<<    Check this before implementation
 			
@@ -745,9 +730,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			})*/
 			
 		}
-		
-		
-		setMessageList()
 		
 		
 		//let time2 = NSDate()
@@ -768,7 +750,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		
 		//MARK - Alert: Update Detected
-		if newGameForBeta == true && betaProgressReset == true {
+		if newGameForBeta == true {
 			alert(title : "Update Detected", message : "During the beta phase, story progression is reset with each update")
 		}
 		
