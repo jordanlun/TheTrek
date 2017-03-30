@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3EC057031E8D5EF6007FED0C /* messageList_0_2_1__1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC057021E8D5EF6007FED0C /* messageList_0_2_1__1.swift */; };
+		3EC057051E8D5F04007FED0C /* messageList_0_2_1__3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC057041E8D5F04007FED0C /* messageList_0_2_1__3.swift */; };
+		3EC057071E8D5F18007FED0C /* messageList_0_2_2__1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC057061E8D5F18007FED0C /* messageList_0_2_2__1.swift */; };
 		3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7764F1C6269C40054D8BE /* AppDelegate.swift */; };
 		3EC776521C6269C40054D8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776511C6269C40054D8BE /* ViewController.swift */; };
 		3EC776551C6269C40054D8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC776531C6269C40054D8BE /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 /* Begin PBXFileReference section */
 		3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
+		3EC057021E8D5EF6007FED0C /* messageList_0_2_1__1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = messageList_0_2_1__1.swift; path = messageLists/messageList_0_2_1__1.swift; sourceTree = "<group>"; };
+		3EC057041E8D5F04007FED0C /* messageList_0_2_1__3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = messageList_0_2_1__3.swift; path = messageLists/messageList_0_2_1__3.swift; sourceTree = "<group>"; };
+		3EC057061E8D5F18007FED0C /* messageList_0_2_2__1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = messageList_0_2_2__1.swift; path = messageLists/messageList_0_2_2__1.swift; sourceTree = "<group>"; };
 		3EC7764C1C6269C40054D8BE /* The Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7764F1C6269C40054D8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC776511C6269C40054D8BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EC057011E8D5EAC007FED0C /* messageLists */ = {
+			isa = PBXGroup;
+			children = (
+				3EC057021E8D5EF6007FED0C /* messageList_0_2_1__1.swift */,
+				3EC057041E8D5F04007FED0C /* messageList_0_2_1__3.swift */,
+				3EC057061E8D5F18007FED0C /* messageList_0_2_2__1.swift */,
+			);
+			name = messageLists;
+			sourceTree = "<group>";
+		};
 		3EC776431C6269C40054D8BE = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +127,7 @@
 				3EC7765E1C6269C40054D8BE /* Info.plist */,
 				3EC776561C6269C40054D8BE /* The_Trek.xcdatamodeld */,
 				3EFB7C661E60BA1D00F05909 /* Resources */,
+				3EC057011E8D5EAC007FED0C /* messageLists */,
 			);
 			path = "The Trek";
 			sourceTree = "<group>";
@@ -291,7 +308,10 @@
 			files = (
 				3EC776521C6269C40054D8BE /* ViewController.swift in Sources */,
 				3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */,
+				3EC057071E8D5F18007FED0C /* messageList_0_2_2__1.swift in Sources */,
 				3EC776581C6269C40054D8BE /* The_Trek.xcdatamodeld in Sources */,
+				3EC057051E8D5F04007FED0C /* messageList_0_2_1__3.swift in Sources */,
+				3EC057031E8D5EF6007FED0C /* messageList_0_2_1__1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
