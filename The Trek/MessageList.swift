@@ -37,13 +37,14 @@ var masterMessageList = [
 	"[WAIT|1",
 	"Yeah, I'm still here",
 	"Must be the blizzard",
-	"[RESPONSE|Blizzard?|1|So what\nhappened?|Oh, so as we were nearing Gilgit, I asked him to take me on a quick pass over one of the ranges--the Karakoram I think he called it",
+	"[RESPONSE|Blizzard?|1|So what\nhappened?|Oh, so as we were nearing Gilgit I asked him to take me on a pass over one of the ranges . . .",
 	"Yeah, there's quite a storm out there",
 	"I'm fine for now",
 	"I'm taking shelter in the helicopter wreckage",
 	"It's getting real cold in here though",
 	"[RESPONSE|What happened?|1|Wreckage?|1",
-	"Oh, so as we were nearing Gilgit, I asked him to take me on a quick pass over one of the ranges--the Karakoram I think he called it", //KEY
+	"Oh, so as we were nearing Gilgit I asked him to take me on a pass over one of the ranges . . .",
+	". . . the Karakoram I think he called it", //KEY
 	"But he told me it was getting late and that the wind was starting to pick up, and said we needed to land in Gilgit",
 	"It is Pakistan after all, however . . . there isn't much you can't do with a bit of cash",
 	"[WAIT|1.5",
@@ -56,10 +57,12 @@ var masterMessageList = [
 	"The pilot . . . he's dead",
 	"His restraint didn't hold up and I think he hit his head",
 	"There's a . . . a lot of blood",
-	"[RESPONSE|Try not to look|1|What's your status?|3",
+	"[RESPONSE|Try not to look|1|What's your status?|. . .",
 	"I can't seem to help it though. My eyes keep drifting over to him",
 	"[RESPONSE|Are you injured?|Miraculously, I seem to be ok, apart from a few bruises|What's your status?|1",
-	"You mean besides the fact that I'm huddled up in the skeleton of a wrecked helicopter in the middle of nowhere, trying not to freeze to death?", //KEY
+	". . .", //KEY
+	"[WAIT|1.5",
+	"Besides the fact that I'm stranded out in the middle of nowhere trying not to freeze to death?",
 	"[RESPONSE|Are you injured?|1|Yes, besides that.|1",
 	"Miraculously, I seem to be ok, apart from a few bruises", //KEY
 	"And I've had a little bit of time to get over the shock of the whole thing",
@@ -93,8 +96,8 @@ var masterMessageList = [
 	"It would definitely help to know exactly where I was",
 	"But if I'm east of Gilgit, I guess I just head west",
 	"How should I start?",
-	"[RESPONSE|Try to find a map|1|Start walking|You sure I should go out in this?",
-	"Ok, give me a minute to look",
+	"[RESPONSE|Search the wreckage|1|Start walking|You sure I should go out in this?",
+	"Ok, give me a minute",
 	"[SYS|Ben is busy|3",
 	"Couldn’t find a map anywhere",
 	"I did find a thin blanket, though, which could really be helpful",
@@ -411,7 +414,7 @@ var masterMessageList = [
 	". . . I have no supplies or equipment . . .",
 	". . . and this phone could die at any moment, leaving me completely cut off from everyone",
 	"It's starting to flurry too, and the wind's picking up, so it's likely that the helicopter will have to leave me out here and return to base",
-	"On the other hand, being captured, tortured, and shot is probably better than freezing or starving to death",
+	"On the other hand, freezing to death sounds more attractive to me than being captured, tortured, and shot",
 	"What's your verdict?",
 	"[RESPONSE|Go and\nmeet them|Ok, I'm really trusting you this time|Better to\navoid them|1|",
 	
@@ -432,7 +435,7 @@ var masterMessageList = [
 	"Ok, I'm really trusting you this time", //KEY
 	"I'll see if I can get their attention",
 	"[SYS|Ben is busy|30",
-	"Oh my gosh. We definitely made the right choice",
+	"Wow. We definitely made the right choice",
 	"I had to run to catch up with them, and by the time I reached them I was almost dying from exhaustion",
 	"I'm sure I looked like a crazy man to them . . .",
 	". . . running across the snow, waving my arms in the air . . . only to collapse right in front of them",

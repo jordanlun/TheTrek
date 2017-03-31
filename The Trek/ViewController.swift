@@ -11,7 +11,8 @@
 //Update Notes v. 0.2.2:
 //  Submitted to TestFlight
 //  Fluid story updates
-//  Updates no longer reset story progression
+//	  Updates no longer reset story progression
+//  Improved app display on smaller screen sizes
 //  Removed dead time on app launch
 //  First game over now only prompts, "Try Again"
 //  Story tweaks (rewrote much of the introduction)
@@ -20,6 +21,8 @@
 //Beta Submission
 //  Remove unneeded fonts, images, UI elements
 //  Check:
+//    Try all buttons
+//    Spell check messageList
 //    forceNewGame = false, fastVersion = false, betaProgressReset = true
 //    Bundle identifier, version & build
 //    Info.plist "MinimumOSVersion"
@@ -35,13 +38,9 @@
 
 
 //UX:
-//  setStoryVersion at safe "checkpoints" (update thread & locate new messageIndex)
+//  Text small on 4" screens
 
-//  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
-//    Update BenBusyTimer on move to the foreground
-//    ALSO:
-//      Messages begin pushing before view has appeared. Probably due to update in viewDidAppear. Reload table in viewDidLoad?
-//      Screenshot on move to background not working properly
+//  setStoryVersion at safe "checkpoints" (update thread & locate new messageIndex)
 
 //  Only scroll when looking at bottom of message feed
 
@@ -49,14 +48,20 @@
 
 //  Error handling (Restart story on error?)
 
+//  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
+//    Update BenBusyTimer on move to the foreground
+//    ALSO:
+//      Messages begin pushing before view has appeared. Probably due to update in viewDidAppear. Reload table in viewDidLoad?
+//      Screenshot on move to background not working properly
+
 
 //UX (cont.):
+//  iOS 9 support
 //  Ben is writing... (append to messagesViewed then remove, create separate object)
 //  Custom table
 //  Variable message speed
 //  Advance forward, backward a specified number of KEY, RESPONSE, RESEARCH, SYS messages
 //  CoreData
-//  Progress sync through iCloud/Gamecenter
 
 
 //UI:
@@ -72,6 +77,15 @@
 
 
 //STORY:
+//  Explain Ben is Busy (Alert, notification explanation, or more Ben)
+
+//  Option to search the wreckage twice
+
+//  Mention eating the pilot
+
+//  Giving up, coax to keep going
+
+
 //  Do something after Ben takes a break
 //  Remind what to Google (rework that line)
 //  What does Ben do? What kind of business trip (Analytics?)
@@ -101,7 +115,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	let forceNewGame = false
 	let fastVersion = true
 
-	var betaProgressReset = false
+	var betaProgressReset = true
+	
 	var gameVersion = String()
 	var savedGameVersion = String()
 	var newGameForBeta = false
@@ -255,7 +270,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			} else if messageArray[0] == "GAMEOVER" {
 				isGameOver = true
 				saveGame()
-				delay(1.5) {
+				if fastVersion == false {
+					delay(1.5) {
+						self.gameOver(self.messageArray[1], revert: self.messageArray[2])
+					}
+				} else {
 					self.gameOver(self.messageArray[1], revert: self.messageArray[2])
 				}
 			}
@@ -469,8 +488,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				messageIndex += 1
 			}
 		} else {
-			while msg != messageList[messageIndex] {
+			while msg != messageList[messageIndex] && messageIndex < messageList.count - 2 {
 				messageIndex += 1
+			}
+			
+			if msg != messageList[messageIndex] {
+				print("advanceToMessage error")
+				
 			}
 		}
 	}
@@ -581,6 +605,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Message")
 		var contentForCell = messagesViewed[indexPath.row]
 		
+		//cell.textLabel!.text = ""
+		
 		//MARK - Add period to message
 		if contentForCell.characters.last! != "." && contentForCell.characters.last! != "?" && contentForCell.characters.last! != "," && contentForCell.characters.last! != "!" && contentForCell.characters.last! != ":" && contentForCell.characters.last! != ";" && contentForCell.characters.last! != "-" && messageTypes[indexPath.row] != "SYS" {
 			contentForCell = "\(contentForCell)."
@@ -640,18 +666,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		super.viewDidLoad()
 		
 		if screenSize.width < 375 {
-			fontResponse = UIFont (name: "Raleway-MediumItalic", size: 14)
-			fontDefault = UIFont (name: "Raleway-Light", size: 14)
-			table.rowHeight = 79.5
+			table.rowHeight = 79.5 //(79.5, 86.5)
 		} else {
-			fontResponse = UIFont (name: "Raleway-MediumItalic", size: 16)
-			fontDefault = UIFont (name: "Raleway-Light", size: 16)
-			table.rowHeight = 96 //14:72, 16:96
+			table.rowHeight = 96
 		}
+		
 		// ATTEMPT: DYNAMIC ROW HEIGHT
-		//table.estimatedRowHeight = 44
+		//table.estimatedRowHeight = 96
 		//table.rowHeight = UITableViewAutomaticDimension
 		
+		fontDefault = UIFont (name: "Raleway-Light", size: 16)
+		
+		fontResponse = UIFont (name: "Raleway-MediumItalic", size: 16)
 		
 		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
 		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
