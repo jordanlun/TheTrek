@@ -38,8 +38,6 @@
 
 
 //UX:
-//  Text small on 4" screens
-
 //  setStoryVersion at safe "checkpoints" (update thread & locate new messageIndex)
 
 //  Only scroll when looking at bottom of message feed
@@ -47,6 +45,7 @@
 //  Wait for notification permission before starting game
 
 //  Error handling (Restart story on error?)
+//    Currently sends game end alert
 
 //  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
 //    Update BenBusyTimer on move to the foreground
