@@ -80,7 +80,9 @@
 
 //  Option to search the wreckage twice
 
-//  Mention eating the pilot
+//  Lack of food
+//    Mention eating the pilot
+//    Eating snow, donut
 
 //  Giving up, coax to keep going
 
@@ -112,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	let forceNewGame = false
-	let fastVersion = true
+	let fastVersion = false
 
 	var betaProgressReset = true
 	
@@ -124,7 +126,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var messagesViewed = [String]()
 	var messageTypes = [String]()
 	var messagePath = [String]() //Not really used
-	var messageIndex = -1 // Images: 130, Default: -1
+	var messageIndex = -1 // Search the wreckage: 83, Default: -1
 	
 	var newMessage = ""
 	var messageArray = [String]()
@@ -508,12 +510,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		return msg.components(separatedBy: "|")
 	}
-
-	
-	func delay(_ delay:Double, closure:@escaping ()->()) {
-		DispatchQueue.main.asyncAfter(
-			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
-	}
 	
 	// Call from AppDelegate applicationWillEnterForeground()
 	func updateBenIsBusyTimer() {
@@ -536,6 +532,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 		alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in }))
 		self.present(alert, animated: true, completion: nil)
+	}
+
+	
+	func delay(_ delay:Double, closure:@escaping ()->()) {
+		DispatchQueue.main.asyncAfter(
+			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 	}
 	
 	
@@ -675,13 +677,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//table.rowHeight = UITableViewAutomaticDimension
 		
 		fontDefault = UIFont (name: "Raleway-Light", size: 16)
-		
 		fontResponse = UIFont (name: "Raleway-MediumItalic", size: 16)
 		
-		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
-		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
-		responseButton1.titleLabel!.font = fontResponse
-		responseButton2.titleLabel!.font = fontResponse
+		//responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
+		//responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
+		//responseButton1.titleLabel!.font = fontResponse
+		//responseButton2.titleLabel!.font = fontResponse
 		
 		
 		

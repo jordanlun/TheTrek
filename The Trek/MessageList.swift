@@ -9,7 +9,7 @@
 import Foundation
 
 
-var masterMessageList = [
+let masterMessageList = [
 	
 	//DAY 1
 	
@@ -99,8 +99,8 @@ var masterMessageList = [
 	"[RESPONSE|Search the wreckage|1|Start walking|You sure I should go out in this?",
 	"Ok, give me a minute",
 	"[SYS|Ben is busy|3",
-	"Couldn’t find a map anywhere",
-	"I did find a thin blanket, though, which could really be helpful",
+	"Didn't find much",
+	"Just an empty water bottle, a few candy wrappers, and half a donut wedged under one of the seats",
 	"So, what do I do now?",
 	"It’s starting to get dark . . . and cold",
 	"Should I head out now, or get a bit of shut-eye first?",
