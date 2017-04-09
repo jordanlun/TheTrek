@@ -57,8 +57,9 @@
 
 
 //UI:
-//  Sound
 //  Custom alert windows
+//  New game yes/no menu (create menuPresets)
+//  Sound
 
 //  Try fonts: Exo 2, Lato, Open Sans
 //  Buttons stay, response appears (?)
