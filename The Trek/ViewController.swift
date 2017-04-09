@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.2, Build 1
+//  The Trek v. 0.2.2, Build 2
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -11,11 +11,11 @@
 //Update Notes v. 0.2.2:
 //  Submitted to TestFlight
 //  Fluid story updates
-//	  Updates no longer reset story progression
+//	  Updates no longer require story progression reset
 //  Improved app display on smaller screen sizes
 //  Removed dead time on app launch
 //  First game over now only prompts, "Try Again"
-//  Story tweaks (rewrote much of the introduction)
+//  Story updates (rewrote much of the introduction)
 
 
 //Beta Submission
@@ -25,7 +25,7 @@
 //    Spell check messageList
 //    forceNewGame = false, fastVersion = false, betaProgressReset = true
 //    Bundle identifier, version & build
-//    Info.plist "MinimumOSVersion"
+//    Info.plist "MinimumOSVersion: 10.0.0"
 
 //App Store Submission:
 //    Remove "Check for new version," betaProgressReset (viewDidLoad, viewDidAppear)
@@ -38,23 +38,16 @@
 
 
 //UX:
-//  setStoryVersion at safe "checkpoints" (update thread & locate new messageIndex)
-
+//  setStoryVersion at safe "checkpoints" (locate new messageIndex)
 //  Only scroll when looking at bottom of message feed
-
 //  Wait for notification permission before starting game
-
 //  Error handling (Restart story on error?)
 //    Currently sends game end alert
-
 //  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
 //    Update BenBusyTimer on move to the foreground
 //    ALSO:
 //      Messages begin pushing before view has appeared. Probably due to update in viewDidAppear. Reload table in viewDidLoad?
 //      Screenshot on move to background not working properly
-
-
-//UX (cont.):
 //  iOS 9 support
 //  Ben is writing... (append to messagesViewed then remove, create separate object)
 //  Custom table
@@ -66,37 +59,14 @@
 //UI:
 //  Sound
 //  Custom alert windows
-//  Try fonts: Exo 2, Lato, Open Sans
 
+//  Try fonts: Exo 2, Lato, Open Sans
 //  Buttons stay, response appears (?)
 //  Challenge: Buttons slide up from bottom
 //  Allow messages to flow under response bar
 
 //  Launch screen?
 
-
-//STORY:
-//  Explain Ben is Busy (Alert, notification explanation, or more Ben)
-
-//  Option to search the wreckage twice
-
-//  Lack of food
-//    Mention eating the pilot
-//    Eating snow, donut
-
-//  Giving up, coax to keep going
-
-
-//  Do something after Ben takes a break
-//  Remind what to Google (rework that line)
-//  What does Ben do? What kind of business trip (Analytics?)
-
-//  Check the line before loads of help
-
-//  More chances for interaction
-//  More emotion
-
-//  Ideas: Animals, hallucinations, details (peeling skin, frostbite, blisters, numb mouth)
 
 
 //NAME:
@@ -116,7 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	let forceNewGame = false
 	let fastVersion = false
 
-	var betaProgressReset = true
+	var betaProgressReset = false
 	
 	var gameVersion = String()
 	var savedGameVersion = String()
@@ -156,6 +126,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	@IBOutlet var responseButton1: UIButton!
 	@IBOutlet var responseButton2: UIButton!
 	@IBOutlet var newGameButton: UIButton!
+	@IBOutlet var settingsButton: UIButton!
+	@IBOutlet var backButton: UIButton!
 	
 	@IBAction func responseButtonPressed1(_ sender: UIButton) {
 		if messageArray != []  {
@@ -212,11 +184,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	@IBAction func newGameButtonPressed(_ sender: UIButton) {
+		newGameConfirm = false
 		gameOver("Are you sure you want to start a new game?", revert: "BEGINNING")
-		self.newGameConfirm = false
-		self.newGameButton.isHidden = true
-		self.newGameButton.isEnabled = false
 	}
+	
+	@IBAction func settingsButtonPressed(_ sender: UIButton) {
+		settingsButton.isHidden = true
+		settingsButton.isEnabled = false
+		backButton.isHidden = false
+		backButton.isEnabled = true
+		newGameButton.isHidden = false
+		newGameButton.isEnabled = true
+		disableButtons()
+	}
+	
+	@IBAction func backButtonPressed(_ sender: UIButton) {
+		backButton.isHidden = true
+		backButton.isEnabled = false
+		settingsButton.isHidden = false
+		settingsButton.isEnabled = true
+		newGameButton.isHidden = true
+		newGameButton.isEnabled = false
+		enableButtons()
+	}
+	
 	
 	
 //MAIN FUNCTIONS
@@ -292,19 +283,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		if fastVersion == true {
 			messageDelayTime = 0.1
-			//print("Fast Version|\(messageDelayTime)")
 			
 		} else if messageArray[0] == "RESPONSE"{
 			messageDelayTime = 1
-			//print("Response|\(messageDelayTime)")
 
 		} else {
-			if messagesViewed.count <= 1 {
-				messageDelayTime = 2.5
-				//print("First message|\(messageDelayTime)")
+			if messagesViewed.count <= 1 { //First message
+				messageDelayTime = 1.5
 			} else {
-				//print("messageDelayTime: \(messageDelayTime)")
-				messageDelayTime = 2.5 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/35.0
+				messageDelayTime = 2.7 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
+				//messageDelayTime = 2.5 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/35.0
 			}
 		}
 		
@@ -312,9 +300,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if messagesViewed.count >= 1 {
 			if messagesViewed[messagesViewed.count - 1] == "Ben is busy" {
 				messageDelayTime = 0.1
-			} else if messageTypes[messageTypes.count - 1] == "RESPONSE" && fastVersion != true {
+			} /*else if messageTypes[messageTypes.count - 1] == "RESPONSE" && fastVersion != true {
 				messageDelayTime = 2.5
-			}
+			}*/
 		}
 	
 		// ATTEMPT: BEN TYPING
@@ -450,6 +438,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			alert.addAction(UIAlertAction(title: "New Game", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
 				if self.newGameConfirm == false {
 					self.newGameConfirm = true
+					
+					self.newGameButton.isHidden = true
+					self.newGameButton.isEnabled = false
+					self.backButton.isHidden = true
+					self.backButton.isEnabled = false
+					self.settingsButton.isHidden = false
+					self.settingsButton.isEnabled = true
 					
 					self.messageIndex = -1
 					
@@ -679,10 +674,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		fontDefault = UIFont (name: "Raleway-Light", size: 16)
 		fontResponse = UIFont (name: "Raleway-MediumItalic", size: 16)
 		
-		//responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
-		//responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
-		//responseButton1.titleLabel!.font = fontResponse
-		//responseButton2.titleLabel!.font = fontResponse
+		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
+		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
+		responseButton1.titleLabel!.font = fontResponse
+		responseButton2.titleLabel!.font = fontResponse
 		
 		
 		

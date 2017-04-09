@@ -1,22 +1,49 @@
 //
-//  TestMessageList.swift
+//  MessageList.swift
 //  The Trek
 //
 //  Created by Jordan Lunsford on 3/30/17.
 //  Copyright © 2017 Jordan Lunsford. All rights reserved.
 //
 
+
+
+//STORY:
+//  Explain Ben is Busy (Alert, notification explanation, or more Ben)
+
+//  Option to search the wreckage twice
+
+//  Lack of food
+//    Mention eating the pilot
+//    Eating snow, donut
+
+//  Giving up, coax to keep going
+
+
+//  Do something after Ben takes a break
+//  Remind what to Google (rework that line)
+//  What does Ben do? What kind of business trip (Analytics?)
+
+//  Check the line before loads of help
+
+//  More chances for interaction
+//  More emotion
+
+//  Ideas: Animals, hallucinations, details (peeling skin, frostbite, blisters, numb mouth)
+
+
+
 import Foundation
 
 
-var testMessageList = [
+public let masterMessageList = [
 	
 	//DAY 1
 	
-	"[RESEARCH|JACK:\nTest Test Test. Everyone else is busy. Should I patch you through?", //KEY
+	"[RESEARCH|JACK:\nGot someone on line 2. Everyone else is busy. Should I patch you through?", //KEY
 	"[RESPONSE|Go ahead|WAIT|Nah|1",
 	"[GAMEOVER|The caller was ignored. He eventually froze to death.|RESEARCH",
-	"[WAIT|0.5",
+	"[WAIT|0.5", //0.5
 	"[SYS|Receiving transmission",
 	"[WAIT|0.5",
 	"Hello?",
@@ -25,11 +52,13 @@ var testMessageList = [
 	"[RESPONSE|Yes, I'm here|1|Who is this?|My name is Ben",
 	"Finally! You've got to help me",
 	"[RESPONSE|What's wrong?|1|Who are you?|My name is Ben",
-	"Let me start at the beginning",
+	"Let's start at the beginning",
 	"My name is Ben", //KEY (2)
 	"A few days ago I came over to Pakistan on a business trip",
-	"I love the mountains, so when my meetings were over I decided to take a couple days off to go find some",
-	"I found a travel agency with helicopter tours and hired one to fly me up north",
+	"My meetings wrapped up early and I still had a few days in the country",
+	"Knowing how I feel about mountains, a friend of mine suggested I fly up north",
+	"So I took his advice and found a travel agency with helicopter tours . . . and here I am",
+	"[WAIT|1.5]",
 	"As we were nearing Gil--",
 	"[SYS|Static",
 	"[WAIT|1.5",
@@ -37,34 +66,41 @@ var testMessageList = [
 	"[WAIT|1",
 	"Yeah, I'm still here",
 	"Must be the blizzard",
-	"[RESPONSE|Blizzard?|1|So what\nhappened?|Oh, so as we were nearing Gilgit, I asked him to take me on a quick pass over one of the ranges--the Karakoram I think he called it",
+	"[RESPONSE|Blizzard?|1|So what\nhappened?|Oh, so as we were nearing Gilgit I asked the pilot to take me on a pass over one of the ranges . . .",
 	"Yeah, there's quite a storm out there",
-	"I'm fine for now",
+	"I'm fine in here . . . for now",
 	"I'm taking shelter in the helicopter wreckage",
-	"It's getting real cold in here though",
 	"[RESPONSE|What happened?|1|Wreckage?|1",
-	"Oh, so as we were nearing Gilgit, I asked him to take me on a quick pass over one of the ranges--the Karakoram I think he called it", //KEY
-	"But he told me it was getting late and that the wind was starting to pick up, and said we needed to land in Gilgit",
-	"It is Pakistan after all, however . . . there isn't much you can't do with a bit of cash",
+	"Oh, so as we were nearing Gilgit I asked the pilot to take me on a pass over one of the ranges . . .",
+	". . . the Karakoram I think he called it", //KEY
+	"But he told me it was getting late and that the wind was starting to pick up, and said we needed to land",
+	"However . . . it is Pakistan . . . there isn't much you can't do with a bit of cash",
 	"[WAIT|1.5",
 	"But we should not have kept going.",
 	"That was a mistake",
 	"[WAIT|1",
 	"Soon we were dealing with a full on blizzard, and by that time it was too late to do anything",
-	"Suddenly the chopper rocked sideways and we fell",
+	"I don't really know what happened . . .",
+	". . . but suddenly the chopper rocked sideways and we fell",
+	"[WAIT|2.5",
+	"The pilot . . . he's . . . dead",
 	"[WAIT|1.5",
-	"The pilot . . . he's dead",
-	"His restraint didn't hold up and I think he hit his head",
-	"There's a . . . a lot of blood",
-	"[RESPONSE|Try not to look|1|What's your status?|3",
-	"I can't seem to help it though. My eyes keep drifting over to him",
+	"His restraint didn't hold up and I, uh, I think he hit his head . . .",
+	"[WAIT|1",
+	"There's a . . . a lot of blood.",
+	"[RESPONSE|Try not to look|1|What's your status?|. . .", //Could be keep calm -> stranded in the middle of nowhere?
+	"I can't seem to help it though",
+	"My eyes keep drifting over to him, just lying there across the dashboard",
+	"Ugh, so much blood . . . I think I'm going to be sick",
 	"[RESPONSE|Are you injured?|Miraculously, I seem to be ok, apart from a few bruises|What's your status?|1",
-	"You mean besides the fact that I'm huddled up in the skeleton of a wrecked helicopter in the middle of nowhere, trying not to freeze to death?", //KEY
+	". . .", //KEY
+	"[WAIT|1.5",
+	"Besides the fact that I'm stranded out in the middle of nowhere trying not to freeze to death?",
 	"[RESPONSE|Are you injured?|1|Yes, besides that.|1",
 	"Miraculously, I seem to be ok, apart from a few bruises", //KEY
 	"And I've had a little bit of time to get over the shock of the whole thing",
 	"My cell phone's useless out here, so without any means of contacting anyone I just kind of sat in utter hopelessness for a bit",
-	"I finally got restless and began to search the wreck for a radio or something",
+	"I finally got restless and began to look for a radio or something",
 	"Lucky this backpack was in here",
 	"That's where I found this satellite phone . . . also a few extra batteries, canned food, some water, and a compass",
 	"I guess the pack's in here in case of emergencies",
@@ -84,27 +120,24 @@ var testMessageList = [
 	"For all I know though, I could be twenty miles away . . . or a hundred",
 	"[WAIT|1",
 	"So, what are the chances of another helicopter coming by to pick me up?",
-	"[RESPONSE|Not good|1|Jack?|1",
+	"[RESPONSE|Not good|So you're saying I have to . . . walk?|Jack?|1",
 	"[RESEARCH|JACK:\nPickup right now is a no-go. Local sources are measuring wind speeds of up to sixty miles an hour",
 	"[WAIT|1",
-	"So you're saying I have to . . . walk?",
+	"So you're saying I have to . . . walk?", //KEY
 	"[RESPONSE|I'm afraid so|1|Yes|1",
 	"Fun",
 	"It would definitely help to know exactly where I was",
 	"But if I'm east of Gilgit, I guess I just head west",
+	"[WAIT|2.5",
+	"Brrr. It's getting pretty frigid in here",
+	"[WAIT|1",
 	"How should I start?",
-	"[RESPONSE|Try to find a map|1|Start walking|You sure I should go out in this?",
-	"Ok, give me a minute to look",
-	"[SYS|Ben is busy|3",
-	"Couldn’t find a map anywhere",
-	"I did find a thin blanket, though, which could really be helpful",
-	"So, what do I do now?",
-	"It’s starting to get dark . . . and cold",
-	"Should I head out now, or get a bit of shut-eye first?",
-	"[RESPONSE|Get going now|1|Get some sleep|Yeah, someone would have to be pretty dumb to go out in this weather",
-	"You sure I should go out in this?", //KEY
+	"[RESPONSE|Start walking|1|Search the wreckage|Ok, give me a minute",
+	
+	"You sure I should go out in this?",
 	"It’ll already be hard to hike with this wind, but in the dark too . . .",
-	"[RESPONSE|Start walking|1|Ok, wait\nuntil morning|Yeah, someone would have to be pretty dumb to go out in this weather",
+	"[RESPONSE|Yes, get going|1|No, wait\nuntil morning|Yeah, someone would have to be pretty dumb to go out in this weather",
+	
 	"Ok, I’m trusting you on this",
 	"[SYS|Ben is busy|13",
 	"Umm. I can’t see a thing. Maybe I should head back",
@@ -121,9 +154,26 @@ var testMessageList = [
 	"[RESPONSE|Ben?|1|You there?|1",
 	"[SYS|Static",
 	"[GAMEOVER|Ben lost consciousness and collapsed. He eventually froze to death.|How should I start?",
-	"Yeah, someone would have to be pretty dumb to go out in this weather", //KEY
-	"Ok, I guess I’ll talk to you in the morning",
-	"[SYS|Ben is busy|480",
+	
+	"Yeah, someone would have to be pretty dumb to go out in this weather",
+	"So what should I do instead?",
+	"[RESPONSE|Search the wreckage|Ok, give me a minute|Get some sleep|1",
+	"Ok then, I guess I’ll talk to you in the morning",
+	"[SKIP|[SYS|Ben is busy|472",
+	
+	"Ok, give me a minute", //KEY (2)
+	"[SYS|Ben is busy|3",
+	"Didn't find much",
+	"Just an empty water bottle, a few candy wrappers . . . oh, and half a donut wedged under one of the seats",
+	"[RESPONSE|Hmm, that's too bad|Yeah . . .|Ooh, a donut. Yum|1|",
+	"Uh, no thanks",
+	"I think I'll take the canned food . . . and leave the stale, half-eaten donut",
+	"[WAIT|1.5",
+	"[SKIP|2",
+	"Yeah . . .",
+	"Anyways, I'm gonna get some shut-eye. Talk to you in the morning",
+	
+	"[SYS|Ben is busy|472", // KEY
 	
 	
 	//DAY 2
@@ -411,7 +461,7 @@ var testMessageList = [
 	". . . I have no supplies or equipment . . .",
 	". . . and this phone could die at any moment, leaving me completely cut off from everyone",
 	"It's starting to flurry too, and the wind's picking up, so it's likely that the helicopter will have to leave me out here and return to base",
-	"On the other hand, being captured, tortured, and shot is probably better than freezing or starving to death",
+	"On the other hand, freezing to death sounds more attractive to me than being captured, tortured, and shot",
 	"What's your verdict?",
 	"[RESPONSE|Go and\nmeet them|Ok, I'm really trusting you this time|Better to\navoid them|1|",
 	
@@ -432,7 +482,7 @@ var testMessageList = [
 	"Ok, I'm really trusting you this time", //KEY
 	"I'll see if I can get their attention",
 	"[SYS|Ben is busy|30",
-	"Oh my gosh. We definitely made the right choice",
+	"Wow. We definitely made the right choice",
 	"I had to run to catch up with them, and by the time I reached them I was almost dying from exhaustion",
 	"I'm sure I looked like a crazy man to them . . .",
 	". . . running across the snow, waving my arms in the air . . . only to collapse right in front of them",

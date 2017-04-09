@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3EC057091E8D98C0007FED0C /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC057081E8D98C0007FED0C /* MessageList.swift */; };
-		3EC0570B1E8DA5C1007FED0C /* TestMessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0570A1E8DA5C1007FED0C /* TestMessageList.swift */; };
 		3EC0570D1E8DCCBC007FED0C /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0570C1E8DCCBC007FED0C /* Raleway-Medium.ttf */; };
 		3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7764F1C6269C40054D8BE /* AppDelegate.swift */; };
 		3EC776521C6269C40054D8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776511C6269C40054D8BE /* ViewController.swift */; };
@@ -43,7 +42,6 @@
 		3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
 		3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
 		3EC057081E8D98C0007FED0C /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
-		3EC0570A1E8DA5C1007FED0C /* TestMessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMessageList.swift; sourceTree = "<group>"; };
 		3EC0570C1E8DCCBC007FED0C /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		3EC7764C1C6269C40054D8BE /* The Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7764F1C6269C40054D8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				3EC7765B1C6269C40054D8BE /* LaunchScreen.storyboard */,
 				3EC7765E1C6269C40054D8BE /* Info.plist */,
 				3EC776561C6269C40054D8BE /* The_Trek.xcdatamodeld */,
-				3EC0570A1E8DA5C1007FED0C /* TestMessageList.swift */,
 				3EFB7C661E60BA1D00F05909 /* Resources */,
 			);
 			path = "The Trek";
@@ -300,7 +297,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC776521C6269C40054D8BE /* ViewController.swift in Sources */,
-				3EC0570B1E8DA5C1007FED0C /* TestMessageList.swift in Sources */,
 				3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */,
 				3EC776581C6269C40054D8BE /* The_Trek.xcdatamodeld in Sources */,
 				3EC057091E8D98C0007FED0C /* MessageList.swift in Sources */,
