@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,6 +47,13 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsButton" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-1U-1Hz">
+                                <rect key="frame" x="177.5" y="611.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="YIB-Id-2zn"/>
+                                    <constraint firstAttribute="width" constant="20" id="mi3-AZ-yo1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -55,7 +62,9 @@
                             <constraint firstItem="N0b-9k-h1H" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UJR-d8-jZV"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="N0b-9k-h1H" secondAttribute="bottom" id="YTk-yf-IOa"/>
                             <constraint firstAttribute="trailing" secondItem="H8V-vL-EjQ" secondAttribute="trailing" id="d0T-Bb-5Og"/>
+                            <constraint firstItem="ZMV-1U-1Hz" firstAttribute="centerY" secondItem="H8V-vL-EjQ" secondAttribute="centerY" id="iTI-yY-gjs"/>
                             <constraint firstItem="N0b-9k-h1H" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="qgQ-ge-fj6"/>
+                            <constraint firstItem="ZMV-1U-1Hz" firstAttribute="centerX" secondItem="H8V-vL-EjQ" secondAttribute="centerX" id="wOm-Lo-NEv"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="H8V-vL-EjQ" secondAttribute="bottom" id="xXe-qi-p9e"/>
                         </constraints>
                     </view>
@@ -67,5 +76,6 @@
     </scenes>
     <resources>
         <image name="BackgroundGradient" width="750" height="1334"/>
+        <image name="SettingsButton" width="24" height="24"/>
     </resources>
 </document>

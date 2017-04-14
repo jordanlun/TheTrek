@@ -18,6 +18,11 @@
 //  Story updates (rewrote much of the introduction)
 
 
+//Discussion:
+//  Settings menu: initial caps?
+
+
+
 //Beta Submission
 //  Remove unneeded fonts, images, UI elements
 //  Check:
@@ -57,6 +62,8 @@
 
 
 //UI:
+//  Only in fast version, new game at end, buttons flash previous responses
+
 //  Custom alert windows
 //  New game yes/no menu (create menuPresets)
 //  Sound
@@ -85,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	let forceNewGame = false
-	let fastVersion = false
+	let fastVersion = true
 
 	var betaProgressReset = false
 	
@@ -175,6 +182,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		responseButton2.isEnabled = true
 		responseButton1.isHidden = false
 		responseButton2.isHidden = false
+		settingsButton.isHidden = false
+		settingsButton.isEnabled = true
 	}
 	
 	func disableButtons() {
@@ -182,11 +191,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		responseButton2.isHidden = true
 		responseButton1.isEnabled = false
 		responseButton2.isEnabled = false
+		settingsButton.isHidden = true
+		settingsButton.isEnabled = false
 	}
 	
-	@IBAction func newGameButtonPressed(_ sender: UIButton) {
-		newGameConfirm = false
-		gameOver("Are you sure you want to start a new game?", revert: "BEGINNING")
+	@IBAction func newGameButtonPressed(_ sender: UIButton) { //Change text to Confirm new game?, then new game
+		if newGameConfirm == true {
+			newGameButton.setTitle("start new game", for: UIControlState())
+			newGameConfirm = false
+		} else {
+			newGameButton.isHidden = true
+			newGameButton.isEnabled = false
+			newGameButton.setTitle("new game", for: UIControlState())
+			newGameConfirm = true
+			startNewGame()
+		}
 	}
 	
 	@IBAction func settingsButtonPressed(_ sender: UIButton) {
@@ -194,8 +213,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		settingsButton.isEnabled = false
 		backButton.isHidden = false
 		backButton.isEnabled = true
+		
 		newGameButton.isHidden = false
 		newGameButton.isEnabled = true
+		
 		disableButtons()
 	}
 	
@@ -204,8 +225,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		backButton.isEnabled = false
 		settingsButton.isHidden = false
 		settingsButton.isEnabled = true
+		
 		newGameButton.isHidden = true
 		newGameButton.isEnabled = false
+		newGameButton.setTitle("new game", for: UIControlState())
+		newGameConfirm = true
+		
 		enableButtons()
 	}
 	
@@ -435,32 +460,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		
 		//NEW GAME
-		if messageIndex != 2 {
+		if messageIndex != 2 && revert != "BEGINNING" {
 			alert.addAction(UIAlertAction(title: "New Game", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
 				if self.newGameConfirm == false {
 					self.newGameConfirm = true
-					
-					self.newGameButton.isHidden = true
-					self.newGameButton.isEnabled = false
-					self.backButton.isHidden = true
-					self.backButton.isEnabled = false
-					self.settingsButton.isHidden = false
-					self.settingsButton.isEnabled = true
-					
-					self.messageIndex = -1
-					
-					self.messagesViewed = []
-					self.messageTypes = []
-					self.messagePath = []
-					
-					self.isGameOver = false
-					
-					self.setMessageList()
-					
-					self.saveGame()
-					self.table.reloadData()
-					self.scrollToBottom()
-					self.nextMessage()
+					self.startNewGame()
 				} else {
 					self.newGameConfirm = false
 					self.gameOver("Are you sure you want to start a new game?", revert: revert)
@@ -472,6 +476,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			self.present(alert, animated: true, completion: nil)
 	}
 
+	
+	func startNewGame() { //include wait
+		newGameConfirm = true
+		
+		backButton.isHidden = true
+		backButton.isEnabled = false
+		settingsButton.isHidden = true
+		settingsButton.isEnabled = false
+		
+		responseButton1.setTitle("", for: UIControlState())
+		responseButton2.setTitle("", for: UIControlState())
+		
+		messageIndex = -1
+		
+		messagesViewed = []
+		messageTypes = []
+		messagePath = []
+		
+		isGameOver = false
+		
+		setMessageList()
+		
+		saveGame()
+		table.reloadData()
+		scrollToBottom()
+		nextMessage()
+	}
+	
+	
+	func setMessageList() {
+		messageList = masterMessageList
+		//messageList = testMessageList
+		
+		history.removeObject(forKey: "messageList")
+		history.set(messageList, forKey: "messageList")
+	}
+	
+	
 	
 	
 //OTHER FUNCTIONS
@@ -534,15 +576,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	func delay(_ delay:Double, closure:@escaping ()->()) {
 		DispatchQueue.main.asyncAfter(
 			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
-	}
-	
-	
-	func setMessageList() {
-		messageList = masterMessageList
-		//messageList = testMessageList
-		
-		history.removeObject(forKey: "messageList")
-		history.set(messageList, forKey: "messageList")
 	}
 	
 	
@@ -679,6 +712,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
 		responseButton1.titleLabel!.font = fontResponse
 		responseButton2.titleLabel!.font = fontResponse
+		
+		newGameButton.titleLabel!.textAlignment = NSTextAlignment.center
 		
 		
 		
