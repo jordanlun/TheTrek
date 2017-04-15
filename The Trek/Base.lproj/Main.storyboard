@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Raleway-Light.ttf">
+            <string>Raleway-Light</string>
+        </array>
         <array key="Raleway-Medium.ttf">
             <string>Raleway-Medium</string>
         </array>
@@ -22,7 +25,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="The_Trek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="primaryViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="The_Trek" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,19 +37,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="Ucz-l2-tOM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="891" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZw-Jc-bDU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="991" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KZw-Jc-bDU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="556"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Message" textLabel="saF-3u-mWR" rowHeight="891" style="IBUITableViewCellStyleDefault" id="n6e-eM-CLE">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="891"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Message" textLabel="saF-3u-mWR" rowHeight="991" style="IBUITableViewCellStyleDefault" id="n6e-eM-CLE">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="991"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n6e-eM-CLE" id="Atf-CH-iT0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="891"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="991"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="saF-3u-mWR">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="891"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="991"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,10 +88,10 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riY-6j-mHh">
-                                <rect key="frame" x="159.5" y="593.5" width="56" height="56"/>
+                                <rect key="frame" x="162.5" y="596.5" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="bDe-tv-lLH"/>
-                                    <constraint firstAttribute="width" constant="56" id="zpy-Id-qEb"/>
+                                    <constraint firstAttribute="height" constant="50" id="bDe-tv-lLH"/>
+                                    <constraint firstAttribute="width" constant="50" id="zpy-Id-qEb"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.078487723209999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Settings Button" backgroundImage="SettingsButton"/>
@@ -96,23 +99,8 @@
                                     <action selector="settingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="21Z-nM-5FL"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-xc-J9V">
-                                <rect key="frame" x="124.5" y="596" width="125" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="GBe-xD-Tye"/>
-                                    <constraint firstAttribute="width" constant="125" id="mU9-8d-y6o"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                <state key="normal" title="new game">
-                                    <color key="titleColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6M7-rp-Lbk"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmX-mc-edv">
-                                <rect key="frame" x="64.5" y="606.5" width="50" height="30"/>
+                                <rect key="frame" x="67" y="606.5" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="S6c-sN-WoZ"/>
                                     <constraint firstAttribute="height" constant="30" id="jZd-if-JaB"/>
@@ -124,7 +112,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-Fr-1Er">
-                                <rect key="frame" x="20" y="596" width="139.5" height="51"/>
+                                <rect key="frame" x="20" y="596" width="142.5" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="OZj-o2-uvC"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="iy5-xu-PCu"/>
@@ -139,7 +127,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1n9-6d-Snu">
-                                <rect key="frame" x="215.5" y="596" width="139.5" height="51"/>
+                                <rect key="frame" x="212.5" y="596" width="142.5" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Mar-Y8-eFk"/>
                                     <constraint firstAttribute="height" constant="51" id="uHy-Ht-9gs"/>
@@ -153,10 +141,55 @@
                                     <action selector="responseButtonPressed2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uZD-tV-UrT"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-xc-J9V">
+                                <rect key="frame" x="125" y="596" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="GBe-xD-Tye"/>
+                                    <constraint firstAttribute="width" constant="125" id="mU9-8d-y6o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                <state key="normal" title="new game">
+                                    <color key="titleColor" red="0.52156862745098043" green="0.52156862745098043" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6M7-rp-Lbk"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="miD-mX-j74">
+                                <rect key="frame" x="29" y="596" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="pRc-09-QV0"/>
+                                    <constraint firstAttribute="height" constant="51" id="s5h-rf-KGp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                <state key="normal" title="try again">
+                                    <color key="titleColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tryAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6R-g7-Kh6"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Wc-ys-KO9">
+                                <rect key="frame" x="221" y="596" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="CTB-Ko-9jJ"/>
+                                    <constraint firstAttribute="width" constant="125" id="fZA-gj-B1f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
+                                <state key="normal" title="new game">
+                                    <color key="titleColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="newGameButtonPressed2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXW-jI-R5f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="riY-6j-mHh" firstAttribute="leading" secondItem="3Ns-Fr-1Er" secondAttribute="trailing" id="2cL-jg-aq6"/>
+                            <constraint firstItem="riY-6j-mHh" firstAttribute="leading" secondItem="3Ns-Fr-1Er" secondAttribute="trailing" priority="750" id="2cL-jg-aq6"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k1B-Ds-BrP" secondAttribute="bottom" id="4aK-aC-iBF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Ns-Fr-1Er" secondAttribute="bottom" constant="20" id="8yf-07-MIf"/>
                             <constraint firstItem="ntc-xc-J9V" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="9Fu-lW-2Ur"/>
@@ -168,9 +201,13 @@
                             <constraint firstItem="Ucz-l2-tOM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="KQU-Nc-Bzz"/>
                             <constraint firstItem="riY-6j-mHh" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="KyR-bh-0mq"/>
                             <constraint firstItem="KZw-Jc-bDU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LwH-ko-QVR"/>
+                            <constraint firstItem="3Wc-ys-KO9" firstAttribute="centerY" secondItem="1n9-6d-Snu" secondAttribute="centerY" id="PvJ-M5-QzI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ucz-l2-tOM" secondAttribute="bottom" id="QAf-1r-2dy"/>
                             <constraint firstAttribute="trailing" secondItem="Ucz-l2-tOM" secondAttribute="trailing" id="QPg-Xa-zja"/>
-                            <constraint firstItem="1n9-6d-Snu" firstAttribute="leading" secondItem="riY-6j-mHh" secondAttribute="trailing" id="Tum-0A-ssC"/>
+                            <constraint firstItem="1n9-6d-Snu" firstAttribute="leading" secondItem="riY-6j-mHh" secondAttribute="trailing" priority="750" id="Tum-0A-ssC"/>
+                            <constraint firstItem="miD-mX-j74" firstAttribute="centerY" secondItem="qmX-mc-edv" secondAttribute="centerY" id="Twt-P0-jBv"/>
+                            <constraint firstItem="3Wc-ys-KO9" firstAttribute="centerX" secondItem="1n9-6d-Snu" secondAttribute="centerX" id="Vhx-Vz-Eot"/>
+                            <constraint firstItem="miD-mX-j74" firstAttribute="centerX" secondItem="qmX-mc-edv" secondAttribute="centerX" id="W3H-o5-b6g"/>
                             <constraint firstAttribute="trailing" secondItem="KZw-Jc-bDU" secondAttribute="trailing" id="XKH-Sd-lKQ"/>
                             <constraint firstItem="3Ns-Fr-1Er" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="45:100" priority="750" id="YX1-NJ-K4X"/>
                             <constraint firstItem="1n9-6d-Snu" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="aFH-w4-zcf"/>
@@ -187,15 +224,135 @@
                     <connections>
                         <outlet property="backButton" destination="qmX-mc-edv" id="cU0-bY-I0w"/>
                         <outlet property="newGameButton" destination="ntc-xc-J9V" id="Sw2-0B-Itm"/>
+                        <outlet property="newGameButton2" destination="3Wc-ys-KO9" id="NAb-zI-KWZ"/>
                         <outlet property="responseButton1" destination="3Ns-Fr-1Er" id="QSq-wd-8dJ"/>
                         <outlet property="responseButton2" destination="1n9-6d-Snu" id="B9X-qU-75o"/>
                         <outlet property="settingsButton" destination="riY-6j-mHh" id="xve-bX-6Xc"/>
                         <outlet property="table" destination="KZw-Jc-bDU" id="qhv-C2-2LX"/>
+                        <outlet property="tryAgainButton" destination="miD-mX-j74" id="nwP-wZ-DYZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242.40000000000001" y="314.39280359820094"/>
+            <point key="canvasLocation" x="241.99218749999997" y="314.05563689604685"/>
+        </scene>
+        <!--Custom Alert View Controller-->
+        <scene sceneID="mW8-LC-TXA">
+            <objects>
+                <viewController storyboardIdentifier="alert" id="0lG-U8-PhK" customClass="CustomAlertViewController" customModule="The_Trek" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gSL-qq-Isg"/>
+                        <viewControllerLayoutGuide type="bottom" id="SWg-68-jLD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rbn-rs-bWb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LR5-2U-gJm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Button (d. gray)" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-e6-dKH">
+                                <rect key="frame" x="43.5" y="243.5" width="288" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="Cna-pm-x6y"/>
+                                    <constraint firstAttribute="height" constant="180" id="zjF-WS-8zF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El2-Ty-0WB">
+                                <rect key="frame" x="43" y="258.5" width="288" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="nfx-IS-jXV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-uW-mZd">
+                                <rect key="frame" x="59" y="274.5" width="258" height="118"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="118" id="ARq-fM-P9P"/>
+                                </constraints>
+                                <string key="text">The satphone ran out of juice. Ben fought through the blizzard for hours before collapsing from exhaustion. He eventually froze to death.</string>
+                                <fontDescription key="fontDescription" name="Raleway-Light" family="Raleway" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-6n-vEV">
+                                <rect key="frame" x="43.5" y="393.5" width="288" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="yy7-SB-FKg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="15"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" red="0.2901960784" green="0.66666666669999997" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="button3Tapped:" destination="0lG-U8-PhK" eventType="touchUpInside" id="ZOc-9D-hFh"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-jS-PIy">
+                                <rect key="frame" x="187.5" y="393.5" width="144" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ibn-a2-c9e"/>
+                                </constraints>
+                                <state key="normal" title="Button 2">
+                                    <color key="titleColor" red="0.2901960784" green="0.66666666669999997" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="button2Tapped:" destination="0lG-U8-PhK" eventType="touchUpInside" id="caj-38-R4g"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-43-Hya">
+                                <rect key="frame" x="43.5" y="393.5" width="144" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="hMN-fm-1X5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="15"/>
+                                <state key="normal" title="Button 1">
+                                    <color key="titleColor" red="0.2901960784" green="0.66666666669999997" blue="0.78823529410000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="button1Tapped:" destination="0lG-U8-PhK" eventType="touchUpInside" id="lsO-fJ-60K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dAp-43-Hya" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" multiplier="0.5" id="9vM-eh-l7v"/>
+                            <constraint firstItem="El2-Ty-0WB" firstAttribute="top" secondItem="D5B-e6-dKH" secondAttribute="top" constant="15" id="FUM-S3-9jS"/>
+                            <constraint firstItem="dAp-43-Hya" firstAttribute="leading" secondItem="D5B-e6-dKH" secondAttribute="leading" id="GdR-1D-j7r"/>
+                            <constraint firstItem="EdR-uW-mZd" firstAttribute="centerY" secondItem="D5B-e6-dKH" secondAttribute="centerY" id="IuW-VM-8Ua"/>
+                            <constraint firstAttribute="trailing" secondItem="LR5-2U-gJm" secondAttribute="trailing" id="Kyq-6U-OYj"/>
+                            <constraint firstItem="MCQ-jS-PIy" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="PDL-dy-rLt"/>
+                            <constraint firstItem="LR5-2U-gJm" firstAttribute="leading" secondItem="Rbn-rs-bWb" secondAttribute="leading" id="Tee-f9-hZY"/>
+                            <constraint firstItem="LR5-2U-gJm" firstAttribute="top" secondItem="gSL-qq-Isg" secondAttribute="bottom" constant="-20" id="Ub8-9b-GY1"/>
+                            <constraint firstItem="MCQ-jS-PIy" firstAttribute="trailing" secondItem="D5B-e6-dKH" secondAttribute="trailing" id="UuQ-JQ-Tha"/>
+                            <constraint firstItem="SWg-68-jLD" firstAttribute="top" secondItem="LR5-2U-gJm" secondAttribute="bottom" id="Wpx-4w-XlF"/>
+                            <constraint firstItem="EdR-uW-mZd" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" constant="-30" id="XT2-xh-JvR"/>
+                            <constraint firstItem="EdR-uW-mZd" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="Y0o-lr-b6a"/>
+                            <constraint firstItem="MCQ-jS-PIy" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" multiplier="0.5" id="ZaK-BC-r0J"/>
+                            <constraint firstItem="D5B-e6-dKH" firstAttribute="centerX" secondItem="Rbn-rs-bWb" secondAttribute="centerX" id="aUf-aN-jon"/>
+                            <constraint firstItem="dAp-43-Hya" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="aZ3-lp-Bn1"/>
+                            <constraint firstItem="f6d-6n-vEV" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" id="aqB-6o-Cl8"/>
+                            <constraint firstItem="El2-Ty-0WB" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="dBK-UF-gpd"/>
+                            <constraint firstItem="f6d-6n-vEV" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="dXA-ry-IWS"/>
+                            <constraint firstItem="D5B-e6-dKH" firstAttribute="centerY" secondItem="Rbn-rs-bWb" secondAttribute="centerY" id="i0H-RO-iw9"/>
+                            <constraint firstItem="f6d-6n-vEV" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="jF3-IN-xIl"/>
+                            <constraint firstItem="El2-Ty-0WB" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" id="zjw-zO-LSd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="button1" destination="dAp-43-Hya" id="RZi-Lc-iTy"/>
+                        <outlet property="button2" destination="MCQ-jS-PIy" id="Xa8-sP-EwG"/>
+                        <outlet property="button3" destination="f6d-6n-vEV" id="qt8-iR-eu6"/>
+                        <outlet property="descriptionLabel" destination="EdR-uW-mZd" id="2cm-Mc-SX9"/>
+                        <outlet property="titleLabel" destination="El2-Ty-0WB" id="BbK-JV-syW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPZ-Qm-h2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.21875" y="314.05563689604685"/>
         </scene>
     </scenes>
     <resources>

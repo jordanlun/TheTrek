@@ -88,13 +88,19 @@ import UserNotifications
 //import Foundation
 
 
+
+
+var alertParameters = [String]()
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 //INITIAL VARIABLES
 	let forceNewGame = false
-	let fastVersion = true
+	let fastVersionToggle = true
 
 	var betaProgressReset = false
+	var fastVersion = false
 	
 	var gameVersion = String()
 	var savedGameVersion = String()
@@ -111,6 +117,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	var isGameOver = false
 	var newGameConfirm = true
+	var tryAgainRevert = String()
 	
 	var messageDelay = Timer()
 	var messageDelayTime = 0.0
@@ -134,6 +141,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	@IBOutlet var responseButton1: UIButton!
 	@IBOutlet var responseButton2: UIButton!
 	@IBOutlet var newGameButton: UIButton!
+	@IBOutlet var newGameButton2: UIButton!
+	@IBOutlet var tryAgainButton: UIButton!
 	@IBOutlet var settingsButton: UIButton!
 	@IBOutlet var backButton: UIButton!
 	
@@ -206,6 +215,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			newGameConfirm = true
 			startNewGame()
 		}
+	}
+	
+	@IBAction func newGameButtonPressed2(_ sender: UIButton) {
+		if newGameConfirm == true {
+			newGameButton2.setTitle("start new game", for: UIControlState())
+			newGameConfirm = false
+		} else {
+			tryAgainButton.isHidden = true
+			tryAgainButton.isEnabled = false
+			newGameButton2.isHidden = true
+			newGameButton2.isEnabled = false
+			newGameButton2.setTitle("new game", for: UIControlState())
+			newGameConfirm = true
+			startNewGame()
+		}
+	}
+	
+	@IBAction func tryAgainButtonPressed(_ sender: UIButton) {
+		
+		tryAgainButton.isHidden = true
+		tryAgainButton.isEnabled = false
+		newGameButton2.isHidden = true
+		newGameButton2.isEnabled = false
+		newGameButton2.setTitle("new game", for: UIControlState())
+		newGameConfirm = true
+		tryAgain()
 	}
 	
 	@IBAction func settingsButtonPressed(_ sender: UIButton) {
@@ -288,12 +323,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			} else if messageArray[0] == "GAMEOVER" {
 				isGameOver = true
 				saveGame()
+				
+				responseButton1.setTitle("", for: UIControlState()) //temp find where buttons are enabling on TryAgain or NewGame
+				responseButton2.setTitle("", for: UIControlState()) //temp
+				tryAgainRevert = messageArray[2]
+				
 				if fastVersion == false {
 					delay(1.5) {
-						self.gameOver(self.messageArray[1], revert: self.messageArray[2])
+						self.customAlert(title: "Game Over", alertMessage: self.messageArray[1], button1: "Dismiss")
 					}
 				} else {
-					self.gameOver(self.messageArray[1], revert: self.messageArray[2])
+					customAlert(title: "Game Over", alertMessage: messageArray[1], button1: "Dismiss")
 				}
 			}
 			
@@ -395,98 +435,104 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	
-	func gameOver(_ message : String, revert : String) {
+	func customAlert(title: String, alertMessage: String, button1: String, button2: String = "None") {
+		if title == "Game Over" {
+			
+			alertParameters = [title, alertMessage, button1, button2]
+			
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let myAlert = storyboard.instantiateViewController(withIdentifier: "alert")
+			myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+			myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+			self.present(myAlert, animated: true, completion: nil)
+			
+			if messageIndex == 2 {
+				newGameButton.setTitle("try again", for: UIControlState())
+				newGameConfirm = false
+			}
+			
+			delay(0.2) {
+				if self.messageIndex != 2 { //can rename new game button instead of showing try again
+					self.newGameButton2.isHidden = false
+					self.newGameButton2.isEnabled = true
+					
+					if self.tryAgainRevert != "BEGINNING" {
+						self.tryAgainButton.isHidden = false
+						self.tryAgainButton.isEnabled = true
+					}
+					
+				} else {
+					self.newGameButton.isHidden = false
+					self.newGameButton.isEnabled = true
+				}
+			}
+			
+		}
+	}
+	
+
+	func tryAgain() {
 		
 		//MARK - Can revert to any unique message or most recent research or response item
 		//MARK - Only revert within the current story thread. Cannont revert to a message that was never viewed.
 		
-		let alert = UIAlertController(title: "Game Over", message: message, preferredStyle: UIAlertControllerStyle.alert)
+		self.newGameConfirm = true
 		
-		//TRY AGAIN
-		if revert != "BEGINNING" {
-			alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in
-				self.newGameConfirm = true
-				
-				//MARK: Adjust Message Index						<<<<< Combine this and next?
-				if revert == "RESEARCH" || revert == "RESPONSE" {
-					while self.splitMessage(self.messageList[self.messageIndex])[0] != revert {
-						self.messageIndex -= 1
-					}
-				} else {
-					while self.messageList[self.messageIndex] != revert {
-						self.messageIndex -= 1
-					}
-				}
+		//MARK: Adjust Message Index
+		if tryAgainRevert == "RESEARCH" || tryAgainRevert == "RESPONSE" {
+			while self.splitMessage(self.messageList[self.messageIndex])[0] != tryAgainRevert {
 				self.messageIndex -= 1
-				
-				//MARK: Adjust messagesViewed
-				if revert == "RESEARCH" || revert == "RESPONSE" {
-					while self.messageTypes[self.messageTypes.count - 1] != revert {
-						self.messagesViewed.removeLast()
-						self.messageTypes.removeLast()
-					}
-				} else {
-					while self.messagesViewed[self.messagesViewed.count - 1] != revert {
-						self.messagesViewed.removeLast()
-						self.messageTypes.removeLast()
-					}
-				}
+			}
+		} else {
+			while self.messageList[self.messageIndex] != tryAgainRevert {
+				self.messageIndex -= 1
+			}
+		}
+		self.messageIndex -= 1
+		
+		//MARK: Adjust messagesViewed
+		if tryAgainRevert == "RESEARCH" || tryAgainRevert == "RESPONSE" {
+			while self.messageTypes[self.messageTypes.count - 1] != tryAgainRevert {
 				self.messagesViewed.removeLast()
 				self.messageTypes.removeLast()
-				
-				//MARK: Reset other variables
-				if self.messagePath.count > 0 { //TEMP: Checks expression below
-					print("MESSAGE PATH NOT EMPTY")
-				}
-				self.messagePath = [] //Not ideal to clear this
-				
-				self.isGameOver = false
-				
-				//MARK: If new game, setMessageList
-				if self.messageIndex == -1 {
-					self.setMessageList()
-				}
-				
-				self.saveGame()
-				self.table.reloadData()
-				self.scrollToBottom()
-				self.nextMessage()
-			}))
+			}
 		} else {
-			alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in
-				self.newGameButton.isEnabled = true
-				self.newGameButton.isHidden = false
-			}))
+			while self.messagesViewed[self.messagesViewed.count - 1] != tryAgainRevert {
+				self.messagesViewed.removeLast()
+				self.messageTypes.removeLast()
+			}
+		}
+		self.messagesViewed.removeLast()
+		self.messageTypes.removeLast()
+		
+		//MARK: Reset other variables
+		if self.messagePath.count > 0 { //TEMP: Checks expression below
+			print("MESSAGE PATH NOT EMPTY")
+		}
+		self.messagePath = [] //Not ideal to clear this
+		
+		self.isGameOver = false
+		
+		//MARK: If new game, setMessageList
+		if self.messageIndex == -1 {
+			self.setMessageList()
 		}
 		
-		//NEW GAME
-		if messageIndex != 2 && revert != "BEGINNING" {
-			alert.addAction(UIAlertAction(title: "New Game", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
-				if self.newGameConfirm == false {
-					self.newGameConfirm = true
-					self.startNewGame()
-				} else {
-					self.newGameConfirm = false
-					self.gameOver("Are you sure you want to start a new game?", revert: revert)
-				}
-			}))
-		}
-		
-		//PUSH ALERT WINDOW
-			self.present(alert, animated: true, completion: nil)
+		self.saveGame()
+		self.table.reloadData()
+		self.scrollToBottom()
+		self.nextMessage()
 	}
-
 	
-	func startNewGame() { //include wait
+	
+	func startNewGame() { //include optional wait
+		
 		newGameConfirm = true
 		
 		backButton.isHidden = true
 		backButton.isEnabled = false
 		settingsButton.isHidden = true
 		settingsButton.isEnabled = false
-		
-		responseButton1.setTitle("", for: UIControlState())
-		responseButton2.setTitle("", for: UIControlState())
 		
 		messageIndex = -1
 		
@@ -549,6 +595,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		return msg.components(separatedBy: "|")
 	}
 	
+	
 	// Call from AppDelegate applicationWillEnterForeground()
 	func updateBenIsBusyTimer() {
 		if history.object(forKey: "savedBenBusyTimer") != nil {
@@ -566,14 +613,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 	}
 	
-	func alert(title : String, message : String) {
+	
+	
+	func alert(title: String, message: String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 		alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in }))
 		self.present(alert, animated: true, completion: nil)
 	}
+	
 
 	
-	func delay(_ delay:Double, closure:@escaping ()->()) {
+	func delay(_ delay: Double, closure: @escaping ()->()) {
 		DispatchQueue.main.asyncAfter(
 			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 	}
@@ -814,7 +864,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if isGameOver { //messageList not initialized yet. Cannot check index point for game over   <<< messageList is initialized now. Can check
 			delay(0.1) {
 				self.messageArray = self.splitMessage(self.messageList[self.messageIndex])
-				self.gameOver(self.messageArray[1], revert: self.messageArray[2])
+				self.tryAgainRevert = self.messageArray[2]
+				self.customAlert(title: "Game Over", alertMessage: self.messageArray[1], button1: "Dismiss")
 			}
 		} else {
 			if history.object(forKey: "savedBenBusyTimer") != nil {
