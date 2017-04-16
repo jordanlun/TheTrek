@@ -207,7 +207,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBAction func newGameButtonPressed(_ sender: UIButton) { //Change text to Confirm new game?, then new game
 		if newGameConfirm == true {
-			newGameButton.setTitle("Start New Game", for: UIControlState())
+			newGameButton.setTitle("Start New Game?", for: UIControlState())
 			newGameConfirm = false
 		} else {
 			newGameButton.isHidden = true
@@ -220,7 +220,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBAction func newGameButtonPressed2(_ sender: UIButton) {
 		if newGameConfirm == true {
-			newGameButton2.setTitle("Start New Game", for: UIControlState())
+			newGameButton2.setTitle("Start New Game?", for: UIControlState())
 			newGameConfirm = false
 		} else {
 			tryAgainButton.isHidden = true
@@ -468,7 +468,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			self.present(myAlert, animated: true, completion: nil)
 			
 			if messageIndex == 2 {
-				newGameButton.setTitle("try again", for: UIControlState())
+				newGameButton.setTitle("Try Again", for: UIControlState())
 				newGameConfirm = false
 			}
 			
