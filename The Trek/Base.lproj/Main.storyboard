@@ -88,10 +88,10 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riY-6j-mHh">
-                                <rect key="frame" x="162.5" y="596.5" width="50" height="50"/>
+                                <rect key="frame" x="162" y="596" width="51" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bDe-tv-lLH"/>
-                                    <constraint firstAttribute="width" constant="50" id="zpy-Id-qEb"/>
+                                    <constraint firstAttribute="height" constant="51" id="bDe-tv-lLH"/>
+                                    <constraint firstAttribute="width" constant="51" id="zpy-Id-qEb"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.078487723209999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Settings Button" backgroundImage="SettingsButton"/>
@@ -100,10 +100,10 @@
                                 </connections>
                             </button>
                             <button hidden="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmX-mc-edv">
-                                <rect key="frame" x="67" y="606.5" width="50" height="30"/>
+                                <rect key="frame" x="66" y="596" width="50" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="S6c-sN-WoZ"/>
-                                    <constraint firstAttribute="height" constant="30" id="jZd-if-JaB"/>
+                                    <constraint firstAttribute="height" constant="51" id="jZd-if-JaB"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.078487723209999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="BackButton"/>
@@ -112,7 +112,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-Fr-1Er">
-                                <rect key="frame" x="20" y="596" width="142.5" height="51"/>
+                                <rect key="frame" x="20" y="596" width="142" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="OZj-o2-uvC"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="iy5-xu-PCu"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1n9-6d-Snu">
-                                <rect key="frame" x="212.5" y="596" width="142.5" height="51"/>
+                                <rect key="frame" x="213" y="596" width="142" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Mar-Y8-eFk"/>
                                     <constraint firstAttribute="height" constant="51" id="uHy-Ht-9gs"/>
@@ -142,13 +142,12 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ntc-xc-J9V">
-                                <rect key="frame" x="124" y="596" width="127" height="51"/>
+                                <rect key="frame" x="122.5" y="596" width="130" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="GBe-xD-Tye"/>
-                                    <constraint firstAttribute="width" constant="127" id="mU9-8d-y6o"/>
+                                    <constraint firstAttribute="width" constant="130" id="mU9-8d-y6o"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" red="0.2336621613" green="0.67466806989999994" blue="0.60790748179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -156,29 +155,13 @@
                                     <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6M7-rp-Lbk"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="miD-mX-j74">
-                                <rect key="frame" x="29" y="596" width="125" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="125" id="pRc-09-QV0"/>
-                                    <constraint firstAttribute="height" constant="51" id="s5h-rf-KGp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                                <state key="normal" title="Try Again">
-                                    <color key="titleColor" red="0.2336621613" green="0.67466806989999994" blue="0.60790748179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="tryAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6R-g7-Kh6"/>
-                                </connections>
-                            </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Wc-ys-KO9">
-                                <rect key="frame" x="220" y="596" width="127" height="51"/>
+                                <rect key="frame" x="219" y="596" width="130" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="CTB-Ko-9jJ"/>
-                                    <constraint firstAttribute="width" constant="127" id="fZA-gj-B1f"/>
+                                    <constraint firstAttribute="width" constant="130" id="fZA-gj-B1f"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" red="0.23529411764705882" green="0.67450980392156867" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -186,11 +169,25 @@
                                     <action selector="newGameButtonPressed2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXW-jI-R5f"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="miD-mX-j74">
+                                <rect key="frame" x="28" y="596" width="125" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="pRc-09-QV0"/>
+                                    <constraint firstAttribute="height" constant="51" id="s5h-rf-KGp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
+                                <state key="normal" title="Try Again">
+                                    <color key="titleColor" red="0.2336621613" green="0.67466806989999994" blue="0.60790748179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tryAgainButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b6R-g7-Kh6"/>
+                                </connections>
+                            </button>
                             <button hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61I-9U-6Tc">
-                                <rect key="frame" x="325" y="546" width="50" height="30"/>
+                                <rect key="frame" x="325" y="536" width="50" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="uui-N4-omq"/>
-                                    <constraint firstAttribute="height" constant="30" id="yhf-Gt-ize"/>
+                                    <constraint firstAttribute="height" constant="40" id="yhf-Gt-ize"/>
                                 </constraints>
                                 <color key="tintColor" red="0.0" green="0.078431372550000003" blue="0.078487723209999999" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="FastVersion"/>
@@ -205,6 +202,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k1B-Ds-BrP" secondAttribute="bottom" id="4aK-aC-iBF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Ns-Fr-1Er" secondAttribute="bottom" constant="20" id="8yf-07-MIf"/>
                             <constraint firstItem="ntc-xc-J9V" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="9Fu-lW-2Ur"/>
+                            <constraint firstItem="miD-mX-j74" firstAttribute="centerX" secondItem="3Ns-Fr-1Er" secondAttribute="centerX" id="9MQ-WF-irj"/>
                             <constraint firstItem="riY-6j-mHh" firstAttribute="centerX" secondItem="k1B-Ds-BrP" secondAttribute="centerX" id="Abj-l3-ANN"/>
                             <constraint firstItem="qmX-mc-edv" firstAttribute="centerX" secondItem="3Ns-Fr-1Er" secondAttribute="centerX" id="Dkl-DQ-Ta0"/>
                             <constraint firstItem="k1B-Ds-BrP" firstAttribute="top" secondItem="KZw-Jc-bDU" secondAttribute="bottom" id="ExY-i1-kWh"/>
@@ -217,11 +215,10 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ucz-l2-tOM" secondAttribute="bottom" id="QAf-1r-2dy"/>
                             <constraint firstAttribute="trailing" secondItem="Ucz-l2-tOM" secondAttribute="trailing" id="QPg-Xa-zja"/>
                             <constraint firstItem="1n9-6d-Snu" firstAttribute="leading" secondItem="riY-6j-mHh" secondAttribute="trailing" priority="750" id="Tum-0A-ssC"/>
-                            <constraint firstItem="miD-mX-j74" firstAttribute="centerY" secondItem="qmX-mc-edv" secondAttribute="centerY" id="Twt-P0-jBv"/>
                             <constraint firstItem="3Wc-ys-KO9" firstAttribute="centerX" secondItem="1n9-6d-Snu" secondAttribute="centerX" id="Vhx-Vz-Eot"/>
-                            <constraint firstItem="miD-mX-j74" firstAttribute="centerX" secondItem="qmX-mc-edv" secondAttribute="centerX" id="W3H-o5-b6g"/>
                             <constraint firstAttribute="trailing" secondItem="KZw-Jc-bDU" secondAttribute="trailing" id="XKH-Sd-lKQ"/>
                             <constraint firstItem="3Ns-Fr-1Er" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="45:100" priority="750" id="YX1-NJ-K4X"/>
+                            <constraint firstItem="miD-mX-j74" firstAttribute="centerY" secondItem="3Ns-Fr-1Er" secondAttribute="centerY" id="aCe-kM-G3R"/>
                             <constraint firstItem="1n9-6d-Snu" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="aFH-w4-zcf"/>
                             <constraint firstItem="Ucz-l2-tOM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aVd-2W-Ymq"/>
                             <constraint firstItem="ntc-xc-J9V" firstAttribute="centerX" secondItem="k1B-Ds-BrP" secondAttribute="centerX" id="asg-ro-cPl"/>
@@ -231,7 +228,6 @@
                             <constraint firstItem="3Ns-Fr-1Er" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="imm-Vh-dRP"/>
                             <constraint firstItem="k1B-Ds-BrP" firstAttribute="top" secondItem="61I-9U-6Tc" secondAttribute="bottom" id="kyw-wW-V05"/>
                             <constraint firstAttribute="trailing" secondItem="k1B-Ds-BrP" secondAttribute="trailing" id="loh-3S-7wy"/>
-                            <constraint firstItem="qmX-mc-edv" firstAttribute="centerY" secondItem="k1B-Ds-BrP" secondAttribute="centerY" id="vIv-9h-wqP"/>
                             <constraint firstAttribute="trailing" secondItem="61I-9U-6Tc" secondAttribute="trailing" id="zKM-d3-tyJ"/>
                         </constraints>
                     </view>

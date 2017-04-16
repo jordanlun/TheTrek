@@ -286,6 +286,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			if benBusyTimer.isValid {
 				if benBusyTimer.fireDate.timeIntervalSince(Date()) > 0.1 {
 					benBusyTimer.invalidate()
+					history.removeObject(forKey: "savedBenBusyTimer")
+					history.set([benBusyTimer.fireDate], forKey: "savedBenBusyTimer")
 					nextMessage()
 					return
 				}
@@ -295,6 +297,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			fastVersion = false
 			fastVersionButton.alpha = 0.4
 		}
+		
+		history.removeObject(forKey: "fastVersion")
+		history.set([fastVersion], forKey: "fastVersion")
 	}
 	
 	
@@ -398,7 +403,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}*/
 		}
 	
-		if skipDelay == false && fastVersion != true {
+		if skipDelay == false && fastVersion == false {
 			messageDelay = Timer.scheduledTimer(timeInterval: messageDelayTime, target: self, selector: #selector(ViewController.pushMessage), userInfo: nil, repeats: false)
 		} else {
 			pushMessage()
@@ -711,12 +716,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if contentForCell.characters.last! != "." && contentForCell.characters.last! != "?" && contentForCell.characters.last! != "," && contentForCell.characters.last! != "!" && contentForCell.characters.last! != ":" && contentForCell.characters.last! != ";" && contentForCell.characters.last! != "-" && messageTypes[indexPath.row] != "SYS" {
 			contentForCell = "\(contentForCell)."
 		}
-		
-		/* ATTEMPT: BEN TYPING
-		if contentForCell == "..." {
-			message.textLabel!.textColor = UIColor(red: 76/255, green: 116/225, blue: 0, alpha: 1.0)
-			message.textLabel!.textAlignment = NSTextAlignment.Center
-		*/
 			
 		//SYS
 		if messageTypes[indexPath.row] == "SYS" {
@@ -780,10 +779,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
 		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
-		responseButton1.titleLabel!.font = fontResponse
-		responseButton2.titleLabel!.font = fontResponse
+		//responseButton1.titleLabel!.font = fontResponse
+		//responseButton2.titleLabel!.font = fontResponse
 		
 		newGameButton.titleLabel!.textAlignment = NSTextAlignment.center
+		newGameButton2.titleLabel!.textAlignment = NSTextAlignment.center
 		
 		if fastVersionToggle == true {
 			fastVersionButton.isHidden = false
@@ -835,6 +835,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			history.removeObject(forKey: "messageTypes")
 			history.removeObject(forKey: "isGameOver")
 			history.removeObject(forKey: "savedBenBusyTimer")
+			history.removeObject(forKey: "fastVersion")
 			
 			setMessageList()
 			
@@ -855,6 +856,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			messagePath = (history.object(forKey: "messagePath")! as! NSArray)[0] as! [String]
 			
 			isGameOver = (history.object(forKey: "isGameOver")! as! NSArray)[0] as! Bool
+			
+			if history.object(forKey: "fastVersion") == nil {
+				history.set([fastVersion], forKey: "fastVersion")
+			} else {
+				fastVersion = (history.object(forKey: "fastVersion")! as! NSArray)[0] as! Bool
+				if fastVersion == true {
+					fastVersionButton.alpha = 1
+				} else {
+					fastVersionButton.alpha = 0.4
+				}
+			}
 			
 			
 			
@@ -883,7 +895,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				self.table.scrollToRow(at: indexPath, at: .bottom, animated: false)
 			}
 		}
-		
 		//MARK - Alert: Update Detected
 		if newGameForBeta == true {
 			alert(title : "Update Detected", message : "During the beta phase, story progression is reset with each update")
