@@ -145,6 +145,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	@IBOutlet var tryAgainButton: UIButton!
 	@IBOutlet var settingsButton: UIButton!
 	@IBOutlet var backButton: UIButton!
+	@IBOutlet var fastVersionButton: UIButton!
 	
 	@IBAction func responseButtonPressed1(_ sender: UIButton) {
 		if messageArray != []  {
@@ -206,12 +207,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBAction func newGameButtonPressed(_ sender: UIButton) { //Change text to Confirm new game?, then new game
 		if newGameConfirm == true {
-			newGameButton.setTitle("start new game", for: UIControlState())
+			newGameButton.setTitle("Start New Game", for: UIControlState())
 			newGameConfirm = false
 		} else {
 			newGameButton.isHidden = true
 			newGameButton.isEnabled = false
-			newGameButton.setTitle("new game", for: UIControlState())
+			newGameButton.setTitle("New Game", for: UIControlState())
 			newGameConfirm = true
 			startNewGame()
 		}
@@ -219,14 +220,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBAction func newGameButtonPressed2(_ sender: UIButton) {
 		if newGameConfirm == true {
-			newGameButton2.setTitle("start new game", for: UIControlState())
+			newGameButton2.setTitle("Start New Game", for: UIControlState())
 			newGameConfirm = false
 		} else {
 			tryAgainButton.isHidden = true
 			tryAgainButton.isEnabled = false
 			newGameButton2.isHidden = true
 			newGameButton2.isEnabled = false
-			newGameButton2.setTitle("new game", for: UIControlState())
+			newGameButton2.setTitle("New Game", for: UIControlState())
 			newGameConfirm = true
 			startNewGame()
 		}
@@ -238,7 +239,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		tryAgainButton.isEnabled = false
 		newGameButton2.isHidden = true
 		newGameButton2.isEnabled = false
-		newGameButton2.setTitle("new game", for: UIControlState())
+		newGameButton2.setTitle("New Game", for: UIControlState())
 		newGameConfirm = true
 		tryAgain()
 	}
@@ -263,12 +264,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		newGameButton.isHidden = true
 		newGameButton.isEnabled = false
-		newGameButton.setTitle("new game", for: UIControlState())
+		newGameButton.setTitle("New Game", for: UIControlState())
 		newGameConfirm = true
 		
 		enableButtons()
 	}
 	
+	@IBAction func fastVersionButtonPressed(_ sender: UIButton) {
+		if fastVersion == false {
+			fastVersion = true
+			fastVersionButton.alpha = 1
+			
+			if messageDelay.isValid {
+				if messageDelay.fireDate.timeIntervalSince(Date()) > 0.1 {
+					messageDelay.invalidate()
+					pushMessage()
+					return
+				}
+			}
+			
+			if benBusyTimer.isValid {
+				if benBusyTimer.fireDate.timeIntervalSince(Date()) > 0.1 {
+					benBusyTimer.invalidate()
+					nextMessage()
+					return
+				}
+			}
+			
+		} else {
+			fastVersion = false
+			fastVersionButton.alpha = 0.4
+		}
+	}
 	
 	
 //MAIN FUNCTIONS
@@ -371,17 +398,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}*/
 		}
 	
-		// ATTEMPT: BEN TYPING
-		//messagesViewed.append("...")
-		//table.reloadData()
 		if skipDelay == false && fastVersion != true {
 			messageDelay = Timer.scheduledTimer(timeInterval: messageDelayTime, target: self, selector: #selector(ViewController.pushMessage), userInfo: nil, repeats: false)
 		} else {
 			pushMessage()
 		}
-		
-		//print("Timer set – Now: \(Date()) | Delay: \(messageDelayTime) | Fire date: \(messageDelay.fireDate)")
-		
 	}
 	
 	
@@ -452,21 +473,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 			
 			delay(0.2) {
-				if self.messageIndex != 2 { //can rename new game button instead of showing try again
-					self.newGameButton2.isHidden = false
-					self.newGameButton2.isEnabled = true
-					
-					if self.tryAgainRevert != "BEGINNING" {
-						self.tryAgainButton.isHidden = false
-						self.tryAgainButton.isEnabled = true
-					}
-					
-				} else {
+				if self.tryAgainRevert == "BEGINNING" {
 					self.newGameButton.isHidden = false
 					self.newGameButton.isEnabled = true
+					
+				} else if self.messageIndex == 2 {//can rename new game button instead of showing try again
+					self.newGameButton.isHidden = false
+					self.newGameButton.isEnabled = true
+					
+				} else {
+					self.newGameButton2.isHidden = false
+					self.newGameButton2.isEnabled = true
+					self.tryAgainButton.isHidden = false
+					self.tryAgainButton.isEnabled = true
 				}
 			}
-			
 		}
 	}
 	
@@ -610,7 +631,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				print("Updated BenIsBusyTimer")
 			}
 		}
-
 	}
 	
 	
@@ -764,6 +784,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		responseButton2.titleLabel!.font = fontResponse
 		
 		newGameButton.titleLabel!.textAlignment = NSTextAlignment.center
+		
+		if fastVersionToggle == true {
+			fastVersionButton.isHidden = false
+			fastVersionButton.isEnabled = true
+		} else {
+			fastVersionButton.isHidden = true
+			fastVersionButton.isEnabled = false
+		}
 		
 		
 		
