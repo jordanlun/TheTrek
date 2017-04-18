@@ -18,10 +18,6 @@
 //  Story updates (rewrote much of the introduction)
 
 
-//Discussion:
-//  Settings menu: initial caps?
-
-
 
 //Beta Submission
 //  Remove unneeded fonts, images, UI elements
@@ -43,8 +39,11 @@
 
 
 //UX:
+//  Store WAIT and add to messageDelay on next message
+//  Delay game start until after welcome message and notification permission
+//    Alert: Recommend enabling notifications in settings if not granted
+
 //  setStoryVersion at safe "checkpoints" (locate new messageIndex)
-//  Only scroll when looking at bottom of message feed
 //  Wait for notification permission before starting game
 //  Error handling (Restart story on error?)
 //    Currently sends game end alert
@@ -62,10 +61,8 @@
 
 
 //UI:
-//  Only in fast version, new game at end, buttons flash previous responses
+//  Only in fast version, buttons flash previous responses
 
-//  Custom alert windows
-//  New game yes/no menu (create menuPresets)
 //  Sound
 
 //  Try fonts: Exo 2, Lato, Open Sans
@@ -96,15 +93,10 @@ var alertParameters = [String]()
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 	
 //INITIAL VARIABLES
-	let forceNewGame = false
+	var forceNewGame = false
 	let fastVersionToggle = true
 
-	var betaProgressReset = false
 	var fastVersion = false
-	
-	var gameVersion = String()
-	var savedGameVersion = String()
-	var newGameForBeta = false
 	
 	var messageList = [String]()
 	var messagesViewed = [String]()
@@ -328,11 +320,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 				// RESEARCH
 			} else if messageArray[0] == "RESEARCH" {
-				setMessageDelay(skipDelay : skipDelay)
+				setMessageDelay()
 				
 				//SYS
 			} else if messageArray[0] == "SYS" {
-				setMessageDelay(skipDelay : skipDelay)
+				setMessageDelay()
 				
 				// SKIP
 			} else if messageArray[0] == "SKIP" {
@@ -345,8 +337,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			} else if messageArray[0] == "WAIT" {
 				if fastVersion == false {
 					saveGame()
-					delay(Double(messageArray[1])!) {
-						self.nextMessage()
+					if skipDelay == false {
+						delay(Double(messageArray[1])!) {
+							self.nextMessage()
+						}
+					} else {
+						nextMessage()
 					}
 				} else {
 					self.nextMessage()
@@ -362,47 +358,47 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 				if fastVersion == false {
 					delay(1.5) {
-						self.customAlert(title: "Game Over", alertMessage: self.messageArray[1], button1: "Dismiss")
+						self.customAlert(title: "Game Over", message: self.messageArray[1])
 					}
 				} else {
-					customAlert(title: "Game Over", alertMessage: messageArray[1], button1: "Dismiss")
+					customAlert(title: "Game Over", message: messageArray[1])
 				}
 			}
 			
 		// MESSAGE
 		} else {
 			messageArray = ["MESSAGE", newMessage]
-			setMessageDelay(skipDelay : skipDelay)
+			setMessageDelay()
 		}
 	}
 	
 	
 	func setMessageDelay(skipDelay : Bool = false) {
 		
-		if fastVersion == true {
-			messageDelayTime = 0.1
-			
-		} else if messageArray[0] == "RESPONSE"{
+		//RESPONSE
+		if messageArray[0] == "RESPONSE"{
 			messageDelayTime = 1
 
+		//FIRST MESSAGE
 		} else {
-			if messagesViewed.count <= 1 { //First message
+			if messagesViewed.count <= 1 {
 				messageDelayTime = 1.5
+				
+		//DEFAULT
 			} else {
 				messageDelayTime = 2.7 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
 				//messageDelayTime = 2.5 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/35.0
 			}
 		}
 		
-		//MARK - If last message was "Ben is Busy" or a response, override message delay
+		//AFTER BEN IS BUSY
 		if messagesViewed.count >= 1 {
 			if messagesViewed[messagesViewed.count - 1] == "Ben is busy" {
-				messageDelayTime = 0.1
-			} /*else if messageTypes[messageTypes.count - 1] == "RESPONSE" && fastVersion != true {
-				messageDelayTime = 2.5
-			}*/
+				messageDelayTime = 0.5
+			}
 		}
-	
+		
+		//MARK - Set delay
 		if skipDelay == false && fastVersion == false {
 			messageDelay = Timer.scheduledTimer(timeInterval: messageDelayTime, target: self, selector: #selector(ViewController.pushMessage), userInfo: nil, repeats: false)
 		} else {
@@ -461,16 +457,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	
-	func customAlert(title: String, alertMessage: String, button1: String, button2: String = "None") {
+	func customAlert(title: String, message: String, button1: String = "Dismiss", button2: String = "None") {
+		
+		alertParameters = [title, message, button1, button2]
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let myAlert = storyboard.instantiateViewController(withIdentifier: "alert")
+		myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+		myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+		self.present(myAlert, animated: true, completion: nil)
+		
 		if title == "Game Over" {
-			
-			alertParameters = [title, alertMessage, button1, button2]
-			
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let myAlert = storyboard.instantiateViewController(withIdentifier: "alert")
-			myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-			myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-			self.present(myAlert, animated: true, completion: nil)
 			
 			if messageIndex == 2 {
 				newGameButton.setTitle("Try Again", for: UIControlState())
@@ -779,11 +776,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
 		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
-		//responseButton1.titleLabel!.font = fontResponse
-		//responseButton2.titleLabel!.font = fontResponse
-		
 		newGameButton.titleLabel!.textAlignment = NSTextAlignment.center
 		newGameButton2.titleLabel!.textAlignment = NSTextAlignment.center
+		
 		
 		if fastVersionToggle == true {
 			fastVersionButton.isHidden = false
@@ -794,40 +789,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		
 		
-		
-		
-		//LOAD SAVED DATA
-		/*let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-		let context:NSManagedObjectContext = appDel.managedObjectContext
-		var newData = NSEntityDescription.insertNewObjectForEntityForName("Data", inManagedObjectContext: context) as NSManagedObject*/
-		
-		
-		//MARK - Detect Game Update
-		let versionNumber = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String)!
-		let buildVersion = (Bundle.main.infoDictionary?["CFBundleVersion"] as? String)!
-		gameVersion = "\(versionNumber)|\(buildVersion)"
-
-		if history.object(forKey: "gameVersion") != nil {
-			savedGameVersion = (history.object(forKey: "gameVersion")! as! NSArray)[0] as! String
-			if gameVersion != savedGameVersion && betaProgressReset == true {
-				newGameForBeta = true
-			} else {
-				newGameForBeta = false
-			}
-		}
-		
-		history.set([gameVersion], forKey: "gameVersion")
-		
-		
-		//MARK - Override newGameForBeta if no savedMessageList (v1.2.1)
+		//MARK - Force new game if no savedMessageList (v1.2.1)
 		if history.object(forKey: "messageList") == nil {
-			newGameForBeta = true
-			betaProgressReset = true
+			forceNewGame = true
 		}
 		
 		
 		//MARK - New Game
-		if newGameForBeta == true || forceNewGame == true || history.object(forKey: "history") == nil {
+		if forceNewGame == true || history.object(forKey: "history") == nil {
 			
 			history.removeObject(forKey: "history")
 			history.removeObject(forKey: "messageList")
@@ -868,20 +837,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				}
 			}
 			
-			
-			
 			//table.reloadData()   <<<<<    Check this before implementation
-			
-			/*dispatch_async(dispatch_get_main_queue(), {
-				self.alert("Start: " + String(self.history.objectForKey("history")! as! NSArray))
-			})*/
-			
 		}
-		
-		
-		//let time2 = NSDate()
-		//print(time2.timeIntervalSinceDate(time1))
-
 	}
 	
 	
@@ -895,29 +852,38 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				self.table.scrollToRow(at: indexPath, at: .bottom, animated: false)
 			}
 		}
-		//MARK - Alert: Update Detected
-		if newGameForBeta == true {
-			alert(title : "Update Detected", message : "During the beta phase, story progression is reset with each update")
-		}
 		
-		if isGameOver { //messageList not initialized yet. Cannot check index point for game over   <<< messageList is initialized now. Can check
-			delay(0.1) {
-				self.messageArray = self.splitMessage(self.messageList[self.messageIndex])
-				self.tryAgainRevert = self.messageArray[2]
-				self.customAlert(title: "Game Over", alertMessage: self.messageArray[1], button1: "Dismiss")
-			}
-		} else {
-			if history.object(forKey: "savedBenBusyTimer") != nil {
-				savedBenBusyTimer = (history.object(forKey: "savedBenBusyTimer")!  as! NSArray)[0] as! Date
-			}
+		//MARK - Welcome Message
+		if history.object(forKey: "previousRunTest") == nil {
+			history.set(true, forKey: "previousRunTest")
+			customAlert(title : "Welcome", message : "Welcome to the zone. This game takes place over the course of several days and keeps you updated through the use of notifications.", button1: "Begin")
 			
-			let now = Date()
-			let difference = savedBenBusyTimer.timeIntervalSince(now)
-			if difference <= 0 { //Delay?
-				nextMessage(skipDelay : true)
-				table.reloadData()
+			delegate?.welcomeMessageSent = true
+			delegate?.save.set([delegate?.welcomeMessageSent], forKey: "welcomeMessageSent")
+			
+			nextMessage() //delay
+			
+		//MARK - Start Game
+		} else {
+			if isGameOver { //messageList not initialized yet. Cannot check index point for game over   <<< messageList is initialized now. Can check
+				delay(0.1) {
+					self.messageArray = self.splitMessage(self.messageList[self.messageIndex])
+					self.tryAgainRevert = self.messageArray[2]
+					self.customAlert(title: "Game Over", message: self.messageArray[1])
+				}
 			} else {
-				benBusyTimer = Timer.scheduledTimer(timeInterval: difference, target: self, selector: #selector(ViewController.nextMessage), userInfo: nil, repeats: false)
+				if history.object(forKey: "savedBenBusyTimer") != nil {
+					savedBenBusyTimer = (history.object(forKey: "savedBenBusyTimer")!  as! NSArray)[0] as! Date
+				}
+				
+				let now = Date()
+				let difference = savedBenBusyTimer.timeIntervalSince(now)
+				if difference <= 0 {
+					nextMessage(skipDelay : true)
+					table.reloadData()
+				} else {
+					benBusyTimer = Timer.scheduledTimer(timeInterval: difference, target: self, selector: #selector(ViewController.nextMessage), userInfo: nil, repeats: false)
+				}
 			}
 		}
 	}

@@ -11,7 +11,7 @@ import UIKit
 
 class CustomAlertViewController: UIViewController {
 
-	var vc = ViewController()
+	let delegate = UIApplication.shared.delegate as? AppDelegate
 	
 	var button1Function = String()
 	var button2Function = String()
@@ -39,7 +39,11 @@ class CustomAlertViewController: UIViewController {
 	}
 	
 	@IBAction func button3Tapped(_ sender: UIButton) {
-		self.dismiss(animated: true, completion: nil)
+		if delegate?.notificationPermissionSent == false {
+			self.dismiss(animated: true, completion: delegate?.notificationPermission)
+		} else {
+			self.dismiss(animated: true, completion: nil)
+		}
 		//action = button1Function
 		//detectAction()
 	}
@@ -73,6 +77,8 @@ class CustomAlertViewController: UIViewController {
 		
 		titleLabel.text = alertParameters[0]
 		descriptionLabel.text = alertParameters[1]
+		
+		button3.setTitle(alertParameters[2], for: UIControlState())
 		
 		
 		/*

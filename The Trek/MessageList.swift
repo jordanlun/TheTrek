@@ -269,7 +269,7 @@ let masterMessageList = [
 	"Ok, here goes nothing",
 	"[SYS|Ben is busy|20",
 	"[SYS|Connection Lost",
-	"[GAMEOVER|Ben lost his footing and fell to his death|Well, I'm now face to face with another mountain, and the trail I've been following curves off in a more northerly direction",
+	"[GAMEOVER|Ben lost his footing and fell to his death.|Well, I'm now face to face with another mountain, and the trail I've been following curves off in a more northerly direction",
 	
 	"I agree. One bad step, and that would be it", //KEY
 	"I'll just head back to the path and hope I don't end up too far north",
@@ -322,7 +322,7 @@ let masterMessageList = [
 	"I think in the future I would . . .",
 	"ahh!",
 	"[SYS|Connection Lost",
-	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death|Argh . . .",
+	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death.|Argh . . .",
 	
 	"Ok, I guess I'll see if the little I have with me is enough to keep warm", //KEY
 	"Can't see a thing out here",
@@ -355,7 +355,7 @@ let masterMessageList = [
 	"got it! im heading back down!",
 	"i don't think im gonna . . .",
 	"[SYS|Connection Lost",
-	"[GAMEOVER|Ben was buried by the avalanche|wait! my backpack . . . i forgot to grab it!",
+	"[GAMEOVER|Ben was buried by the avalanche.|wait! my backpack . . . i forgot to grab it!",
 	
 	"but i need that stuff! i can't . . .", //KEY
 	"[WAIT|1",

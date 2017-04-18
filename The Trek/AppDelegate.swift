@@ -15,18 +15,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 	var vc : ViewController = ViewController()
+	
+	let save = UserDefaults.standard
+	
+	var notificationPermissionSent = false
+	var welcomeMessageSent = false
+	
+	var notificationsGranted = false
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
-		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
-			if !accepted {
-				print("Notification access denied.")
-			}
+		//MARK: Load Values
+		if save.object(forKey: "notificationPermissionSent") == nil {
+			save.set([notificationPermissionSent], forKey: "notificationPermissionSent")
+		} else {
+			notificationPermissionSent = (save.object(forKey: "notificationPermissionSent")! as! NSArray)[0] as! Bool
 		}
 		
-        return true
+		if save.object(forKey: "welcomeMessageSent") == nil {
+			save.set([welcomeMessageSent], forKey: "welcomeMessageSent")
+		} else {
+			welcomeMessageSent = (save.object(forKey: "welcomeMessageSent")! as! NSArray)[0] as! Bool
+		}
+		
+		//MARK: Check if notification message has been sent
+		if notificationPermissionSent == false && welcomeMessageSent == true {
+			notificationPermission()
+		}
+		return true
     }
 	
     func applicationWillResignActive(_ application: UIApplication) {
@@ -101,6 +119,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				print("Error: \(error)")
 			}
 		}
+	}
+	
+	func notificationPermission() {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
+			if accepted == true {
+				self.notificationsGranted = true
+			}
+		}
+		notificationPermissionSent = true
+		save.set([notificationPermissionSent], forKey: "notificationPermissionSent")
 	}
 	
 	/*func application(_ application: UIApplication, // Should be able to replace in-app timer
