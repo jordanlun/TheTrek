@@ -10,6 +10,8 @@
 
 //Update Notes v. 0.2.3:
 //  Custom alert windows
+//  Settings menu
+//  Welcome message (notification permission asked after explanation)
 //  Story tweaks
 //  Optimizations (dramatic pauses are handled much more efficiently and naturally)
 

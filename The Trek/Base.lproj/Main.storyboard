@@ -288,9 +288,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-6n-vEV">
-                                <rect key="frame" x="43.5" y="374" width="288" height="16"/>
+                                <rect key="frame" x="115.5" y="359" width="144" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="yy7-SB-FKg"/>
+                                    <constraint firstAttribute="height" constant="46" id="yy7-SB-FKg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
                                 <state key="normal" title="Dismiss">
@@ -301,9 +301,9 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-jS-PIy">
-                                <rect key="frame" x="187.5" y="374" width="144" height="16"/>
+                                <rect key="frame" x="187.5" y="359" width="144" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="ibn-a2-c9e"/>
+                                    <constraint firstAttribute="height" constant="46" id="ibn-a2-c9e"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
                                 <state key="normal" title="Button 2">
@@ -314,9 +314,9 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-43-Hya">
-                                <rect key="frame" x="43.5" y="374" width="144" height="16"/>
+                                <rect key="frame" x="43.5" y="359" width="144" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="hMN-fm-1X5"/>
+                                    <constraint firstAttribute="height" constant="46" id="hMN-fm-1X5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Medium" family="Raleway" pointSize="16"/>
                                 <state key="normal" title="Button 1">
@@ -334,7 +334,7 @@
                             <constraint firstItem="dAp-43-Hya" firstAttribute="leading" secondItem="D5B-e6-dKH" secondAttribute="leading" id="GdR-1D-j7r"/>
                             <constraint firstItem="EdR-uW-mZd" firstAttribute="centerY" secondItem="D5B-e6-dKH" secondAttribute="centerY" constant="-2" id="IuW-VM-8Ua"/>
                             <constraint firstAttribute="trailing" secondItem="LR5-2U-gJm" secondAttribute="trailing" id="Kyq-6U-OYj"/>
-                            <constraint firstItem="MCQ-jS-PIy" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="PDL-dy-rLt"/>
+                            <constraint firstItem="MCQ-jS-PIy" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" id="PDL-dy-rLt"/>
                             <constraint firstItem="D5B-e6-dKH" firstAttribute="height" secondItem="EdR-uW-mZd" secondAttribute="height" constant="90" id="PMQ-ZR-Dau"/>
                             <constraint firstItem="LR5-2U-gJm" firstAttribute="leading" secondItem="Rbn-rs-bWb" secondAttribute="leading" id="Tee-f9-hZY"/>
                             <constraint firstItem="LR5-2U-gJm" firstAttribute="top" secondItem="gSL-qq-Isg" secondAttribute="bottom" constant="-20" id="Ub8-9b-GY1"/>
@@ -344,12 +344,12 @@
                             <constraint firstItem="EdR-uW-mZd" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="Y0o-lr-b6a"/>
                             <constraint firstItem="MCQ-jS-PIy" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" multiplier="0.5" id="ZaK-BC-r0J"/>
                             <constraint firstItem="D5B-e6-dKH" firstAttribute="centerX" secondItem="Rbn-rs-bWb" secondAttribute="centerX" id="aUf-aN-jon"/>
-                            <constraint firstItem="dAp-43-Hya" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="aZ3-lp-Bn1"/>
-                            <constraint firstItem="f6d-6n-vEV" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" id="aqB-6o-Cl8"/>
+                            <constraint firstItem="dAp-43-Hya" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" id="aZ3-lp-Bn1"/>
+                            <constraint firstItem="f6d-6n-vEV" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" multiplier="0.5" id="aqB-6o-Cl8"/>
                             <constraint firstItem="El2-Ty-0WB" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="dBK-UF-gpd"/>
                             <constraint firstItem="f6d-6n-vEV" firstAttribute="centerX" secondItem="D5B-e6-dKH" secondAttribute="centerX" id="dXA-ry-IWS"/>
                             <constraint firstItem="D5B-e6-dKH" firstAttribute="centerY" secondItem="Rbn-rs-bWb" secondAttribute="centerY" id="i0H-RO-iw9"/>
-                            <constraint firstItem="f6d-6n-vEV" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" constant="-15" id="jF3-IN-xIl"/>
+                            <constraint firstItem="f6d-6n-vEV" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" id="jF3-IN-xIl"/>
                             <constraint firstItem="El2-Ty-0WB" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" id="zjw-zO-LSd"/>
                         </constraints>
                     </view>
