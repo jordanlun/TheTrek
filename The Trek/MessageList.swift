@@ -43,7 +43,7 @@ let masterMessageList = [
 	"[RESEARCH|JACK:\nGot someone on line 2. Everyone else is busy. Should I patch you through?", //KEY
 	"[RESPONSE|Go ahead|WAIT|Nah|1",
 	"[GAMEOVER|The caller was ignored. He eventually froze to death.|RESEARCH",
-	"[WAIT|0.5", //0.5
+	"[WAIT|5", //KEY; 0.5
 	"[SYS|Receiving transmission",
 	"[WAIT|0.5",
 	"Hello?",

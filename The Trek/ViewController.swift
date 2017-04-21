@@ -8,14 +8,10 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 0.2.2:
-//  Submitted to TestFlight
-//  Fluid story updates
-//	  Updates no longer require story progression reset
-//  Improved app display on smaller screen sizes
-//  Removed dead time on app launch
-//  First game over now only prompts, "Try Again"
-//  Story updates (rewrote much of the introduction)
+//Update Notes v. 0.2.3:
+//  Custom alert windows
+//  Story tweaks
+//  Optimizations (dramatic pauses are handled much more efficiently and naturally)
 
 
 
@@ -113,6 +109,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	var messageDelay = Timer()
 	var messageDelayTime = 0.0
+	var waitDelay = 0.0
 	
 	var benBusyTimer = Timer()
 	var savedBenBusyTimer = Date()
@@ -335,18 +332,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 				// WAIT
 			} else if messageArray[0] == "WAIT" {
-				if fastVersion == false {
-					saveGame()
-					if skipDelay == false {
-						delay(Double(messageArray[1])!) {
-							self.nextMessage()
-						}
-					} else {
-						nextMessage()
-					}
-				} else {
-					self.nextMessage()
-				}
+				waitDelay = Double(messageArray[1])!
+				nextMessage()
 				
 				//GAMEOVER
 			} else if messageArray[0] == "GAMEOVER" {
@@ -398,6 +385,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				messageDelayTime = 0.5
 			}
 		}
+		
+		messageDelayTime += waitDelay
+		waitDelay = 0.0
 		
 		//MARK - Set delay
 		if skipDelay == false && fastVersion == false {
