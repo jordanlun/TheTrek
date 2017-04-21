@@ -347,6 +347,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				} else {
 					self.nextMessage()
 				}
+				
 				//GAMEOVER
 			} else if messageArray[0] == "GAMEOVER" {
 				isGameOver = true
