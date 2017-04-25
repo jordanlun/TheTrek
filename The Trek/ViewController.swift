@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.2, Build 2
+//  The Trek v. 0.2.3, Build 1
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -22,7 +22,7 @@
 //  Check:
 //    Try all buttons
 //    Spell check messageList
-//    forceNewGame = false, fastVersion = false, betaProgressReset = true
+//    forceNewGame = false, fastVersionToggle = false
 //    Bundle identifier, version & build
 //    Info.plist "MinimumOSVersion: 10.0.0"
 
@@ -37,12 +37,9 @@
 
 
 //UX:
-//  Store WAIT and add to messageDelay on next message
 //  Delay game start until after welcome message and notification permission
-//    Alert: Recommend enabling notifications in settings if not granted
 
 //  setStoryVersion at safe "checkpoints" (locate new messageIndex)
-//  Wait for notification permission before starting game
 //  Error handling (Restart story on error?)
 //    Currently sends game end alert
 //  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
@@ -92,7 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	var forceNewGame = false
-	let fastVersionToggle = true
+	let fastVersionToggle = false
 
 	var fastVersion = false
 	
@@ -348,10 +345,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 				if fastVersion == false {
 					delay(1.5) {
-						self.customAlert(title: "Game Over", message: self.messageArray[1])
+						self.customAlert(type: "gameover", title: "Game Over", message: self.messageArray[1])
 					}
 				} else {
-					customAlert(title: "Game Over", message: messageArray[1])
+					customAlert(type: "gameover", title: "Game Over", message: messageArray[1])
 				}
 			}
 			
@@ -384,7 +381,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//AFTER BEN IS BUSY
 		if messagesViewed.count >= 1 {
 			if messagesViewed[messagesViewed.count - 1] == "Ben is busy" {
-				messageDelayTime = 0.5
+				messageDelayTime = 1.5
 			}
 		}
 		
@@ -450,9 +447,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	
-	func customAlert(title: String, message: String, button1: String = "Dismiss", button2: String = "None") {
+	func customAlert(type: String, title: String, message: String, button1: String = "Dismiss", button2: String = "None") {
 		
-		alertParameters = [title, message, button1, button2]
+		alertParameters = [type, title, message, button1, button2]
 		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let myAlert = storyboard.instantiateViewController(withIdentifier: "alert")
@@ -460,7 +457,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 		self.present(myAlert, animated: true, completion: nil)
 		
-		if title == "Game Over" {
+		if type == "gameover" {
 			
 			if messageIndex == 2 {
 				newGameButton.setTitle("Try Again", for: UIControlState())
@@ -779,6 +776,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		} else {
 			fastVersionButton.isHidden = true
 			fastVersionButton.isEnabled = false
+			history.set([fastVersion], forKey: "fastVersion")
 		}
 		
 		
@@ -819,15 +817,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			
 			isGameOver = (history.object(forKey: "isGameOver")! as! NSArray)[0] as! Bool
 			
-			if history.object(forKey: "fastVersion") == nil {
-				history.set([fastVersion], forKey: "fastVersion")
-			} else {
-				fastVersion = (history.object(forKey: "fastVersion")! as! NSArray)[0] as! Bool
-				if fastVersion == true {
-					fastVersionButton.alpha = 1
+			//MARK - Load FastVersion
+			if fastVersionToggle == true {
+				if history.object(forKey: "fastVersion") == nil {
+					history.set([fastVersion], forKey: "fastVersion")
 				} else {
-					fastVersionButton.alpha = 0.4
+					fastVersion = (history.object(forKey: "fastVersion")! as! NSArray)[0] as! Bool
+					if fastVersion == true {
+						fastVersionButton.alpha = 1
+					} else {
+						fastVersionButton.alpha = 0.4
+					}
 				}
+				history.set([fastVersion], forKey: "fastVersion")
 			}
 			
 			//table.reloadData()   <<<<<    Check this before implementation
@@ -849,7 +851,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//MARK - Welcome Message
 		if history.object(forKey: "previousRunTest") == nil {
 			history.set(true, forKey: "previousRunTest")
-			customAlert(title : "Welcome", message : "Welcome to the zone. This game takes place over the course of several days and keeps you updated through the use of notifications.", button1: "Begin")
+			customAlert(type: "welcome", title: "Welcome to The Trek", message: "\nThis game tells the story of Ben and his journey through the wilderness of northern Pakistan. The story will unfold over the course of several days, keeping you updated through push notifications.\n\nPlease enable access to notifications when prompted.", button1: "Begin")
 			
 			delegate?.welcomeMessageSent = true
 			delegate?.save.set([delegate?.welcomeMessageSent], forKey: "welcomeMessageSent")
@@ -862,7 +864,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				delay(0.1) {
 					self.messageArray = self.splitMessage(self.messageList[self.messageIndex])
 					self.tryAgainRevert = self.messageArray[2]
-					self.customAlert(title: "Game Over", message: self.messageArray[1])
+					self.customAlert(type: "gameover", title: "Game Over", message: self.messageArray[1])
 				}
 			} else {
 				if history.object(forKey: "savedBenBusyTimer") != nil {

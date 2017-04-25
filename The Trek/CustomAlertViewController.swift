@@ -13,6 +13,12 @@ class CustomAlertViewController: UIViewController {
 
 	let delegate = UIApplication.shared.delegate as? AppDelegate
 	
+	let type = alertParameters[0]
+	let titleText = alertParameters[1]
+	let messageText = alertParameters[2]
+	let button1Text = alertParameters[3]
+	let button2Text = alertParameters[4]
+	
 	var button1Function = String()
 	var button2Function = String()
 	
@@ -72,13 +78,12 @@ class CustomAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		
 		//let alertParameters = vc.alertParameters
 		
-		titleLabel.text = alertParameters[0]
-		descriptionLabel.text = alertParameters[1]
+		titleLabel.text = titleText
+		descriptionLabel.text = messageText
 		
-		button3.setTitle(alertParameters[2], for: UIControlState())
+		button3.setTitle(button1Text, for: UIControlState())
 		
 		
 		/*

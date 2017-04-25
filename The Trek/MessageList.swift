@@ -43,7 +43,7 @@ let masterMessageList = [
 	"[RESEARCH|JACK:\nGot someone on line 2. Everyone else is busy. Should I patch you through?", //KEY
 	"[RESPONSE|Go ahead|WAIT|Nah|1",
 	"[GAMEOVER|The caller was ignored. He eventually froze to death.|RESEARCH",
-	"[WAIT|5", //KEY; 0.5
+	"[WAIT|0.5", //KEY; 0.5
 	"[SYS|Receiving transmission",
 	"[WAIT|0.5",
 	"Hello?",
@@ -52,13 +52,13 @@ let masterMessageList = [
 	"[RESPONSE|Yes, I'm here|1|Who is this?|My name is Ben",
 	"Finally! You've got to help me",
 	"[RESPONSE|What's wrong?|1|Who are you?|My name is Ben",
-	"Let's start at the beginning",
+	"I should start at the beginning",
 	"My name is Ben", //KEY (2)
 	"A few days ago I came over to Pakistan on a business trip",
 	"My meetings wrapped up early and I still had a few days in the country",
 	"Knowing how I feel about mountains, a friend of mine suggested I fly up north",
-	"So I took his advice and found a travel agency with helicopter tours . . . and here I am",
-	"[WAIT|1.5]",
+	"So I took his advice and found a travel agency with helicopter tours . . . and that's what brought me here",
+	"[WAIT|1.5",
 	"As we were nearing Gil--",
 	"[SYS|Static",
 	"[WAIT|1.5",
@@ -99,8 +99,8 @@ let masterMessageList = [
 	"[RESPONSE|Are you injured?|1|Yes, besides that.|1",
 	"Miraculously, I seem to be ok, apart from a few bruises", //KEY
 	"And I've had a little bit of time to get over the shock of the whole thing",
-	"My cell phone's useless out here, so without any means of contacting anyone I just kind of sat in utter hopelessness for a bit",
-	"I finally got restless and began to look for a radio or something",
+	"My cell phone's useless out here, so without any means of contacting anyone I just sat for a bit trying wrap my head around it all",
+	"Finally I got gave up and began to look for a radio or something",
 	"Lucky this backpack was in here",
 	"That's where I found this satellite phone . . . also a few extra batteries, canned food, some water, and a compass",
 	"I guess the pack's in here in case of emergencies",
@@ -115,7 +115,7 @@ let masterMessageList = [
 	"However, I'm not sure how long I'll need to make the food last",
 	"[SKIP|2",
 	"That is a good question", //KEY
-	"I'm somewhere in the vicinity of Gilgit",
+	"I'm somewhere in the vicinity of Gilgit . . .",
 	". . . somewhere east of the city",
 	"For all I know though, I could be twenty miles away . . . or a hundred",
 	"[WAIT|1",
@@ -165,7 +165,7 @@ let masterMessageList = [
 	"[SYS|Ben is busy|3",
 	"Didn't find much",
 	"Just an empty water bottle, a few candy wrappers . . . oh, and half a donut wedged under one of the seats",
-	"[RESPONSE|Hmm, that's too bad|Yeah . . .|Ooh, a donut. Yum|1|",
+	"[RESPONSE|That's too bad|Yeah . . .|Ooh, a donut!|1|",
 	"Uh, no thanks",
 	"I think I'll take the canned food . . . and leave the stale, half-eaten donut",
 	"[WAIT|1.5",
@@ -187,7 +187,7 @@ let masterMessageList = [
 	"Even at the bottom of this valley I must be higher than most peaks back home",
 	"And I have to hike across this terrain",
 	"Anyways, what should I do this morning? I could get an early start on my trip and think about breakfast later, but my stomach's already growling",
-	"[RESPONSE|Head out now|Good thinking. I am starting to feel a little claustrophobic in here, and it’ll feel good to finally be making some progress|Eat something first|1",
+	"[RESPONSE|Head out now|Good thinking. I am starting to feel a little claustrophobic in here, and it’ll feel good to finally be making some progress|Eat something|1",
 	"Great! I’m starving",
 	"[SYS|Ben is busy|8",
 	"Yum. I guess it's time to go now",
@@ -246,7 +246,7 @@ let masterMessageList = [
 	"[SYS|Ben is busy|75", //KEY
 	
 	"Well, I'm now face to face with another mountain, and the trail I've been following curves off in a more northerly direction",
-	"So, I could keep following the trail, and hope I don't end up too far north",
+	"So, I could keep following the trail and hope I don't end up too far north",
 	"Or I could stay true to my compass and cut straight across",
 	"[RESPONSE|Start climbing|1|Keep to the valley|Yeah, it's probably safer to stay down here",
 	"Ok, I'll give it a shot. I must warn you though, I'm not much of a mountaineer",
@@ -292,7 +292,7 @@ let masterMessageList = [
 	"Um . . . I just reached the end of the valley",
 	"Looks like there's no way past this range without going over it, so I guess I'm climbing after all",
 	"However, it does look easier than the paths earlier",
-	"Anyways, I'm gonna get climbing",
+	"I'm gonna get climbing",
 	
 	"[WAIT|0", //KEY (Placeholder)
 	"[SYS|Ben is busy|110",
@@ -316,7 +316,7 @@ let masterMessageList = [
 	"What do you think? Should I keep trying to fight my way to the bottom, or try to survive until morning up here?",
 	"[RESPONSE|Wait for morning|Ok, I guess I'll see if the little I have with me is enough to keep warm|Keep going|1",
 	
-	"Yeah, I guess chance of survival up here is pretty slim",
+	"Yeah, I guess chances of survival up here are pretty slim",
 	"Ok, here we go",
 	"I just have to make it down in one piece",
 	"I think in the future I would . . .",
@@ -325,8 +325,10 @@ let masterMessageList = [
 	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death.|Argh . . .",
 	
 	"Ok, I guess I'll see if the little I have with me is enough to keep warm", //KEY
+	"[WAIT|1.5",
 	"Can't see a thing out here",
-	"If only I thought to bring a flashlight with me. Or a warm blanket",
+	"If only I thought to bring a flashlight with me.",
+	"Or a blanket",
 	"You don't really think of these things living in the land of 24/7 electricity and year-round warmth",
 	"I guess I just sleep right where I am. Can't very well see any alternatives",
 	"Oh well. I'm gonna have a bite to eat and then see if I can fall asleep",
@@ -347,8 +349,8 @@ let masterMessageList = [
 	"[SKIP|2",
 	"already running", //KEY
 	"wait! my backpack . . . i forgot to grab it!", //KEY
-	"it has all my food",
-	"and the compass!",
+	"it has all my food. . .",
+	". . . and the compass!",
 	"[RESPONSE|Go back for it|1|Forget it|but i need that stuff! i can't . . .",
 	"i'd better be quick about it",
 	"[WAIT|5",

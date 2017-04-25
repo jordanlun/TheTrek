@@ -264,13 +264,13 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Button (d. gray)" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-e6-dKH">
-                                <rect key="frame" x="43.5" y="262" width="288" height="143"/>
+                                <rect key="frame" x="43.5" y="262.5" width="288" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Cna-pm-x6y"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El2-Ty-0WB">
-                                <rect key="frame" x="43" y="283" width="288" height="17"/>
+                                <rect key="frame" x="43" y="281.5" width="288" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="nfx-IS-jXV"/>
                                 </constraints>
@@ -279,7 +279,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The satphone ran out of juice. Ben fought through the blizzard for hours before collapsing from exhaustion." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-uW-mZd">
-                                <rect key="frame" x="59" y="305" width="258" height="53"/>
+                                <rect key="frame" x="59" y="303.5" width="258" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Tju-LA-sps"/>
                                 </constraints>
@@ -288,7 +288,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-6n-vEV">
-                                <rect key="frame" x="115.5" y="359" width="144" height="46"/>
+                                <rect key="frame" x="115.5" y="359.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="yy7-SB-FKg"/>
                                 </constraints>
@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-jS-PIy">
-                                <rect key="frame" x="187.5" y="359" width="144" height="46"/>
+                                <rect key="frame" x="187.5" y="359.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="ibn-a2-c9e"/>
                                 </constraints>
@@ -314,7 +314,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-43-Hya">
-                                <rect key="frame" x="43.5" y="359" width="144" height="46"/>
+                                <rect key="frame" x="43.5" y="359.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="hMN-fm-1X5"/>
                                 </constraints>
@@ -332,7 +332,7 @@
                             <constraint firstItem="EdR-uW-mZd" firstAttribute="top" secondItem="El2-Ty-0WB" secondAttribute="bottom" constant="5" id="6Wl-O7-ZJk"/>
                             <constraint firstItem="dAp-43-Hya" firstAttribute="width" secondItem="D5B-e6-dKH" secondAttribute="width" multiplier="0.5" id="9vM-eh-l7v"/>
                             <constraint firstItem="dAp-43-Hya" firstAttribute="leading" secondItem="D5B-e6-dKH" secondAttribute="leading" id="GdR-1D-j7r"/>
-                            <constraint firstItem="EdR-uW-mZd" firstAttribute="centerY" secondItem="D5B-e6-dKH" secondAttribute="centerY" constant="-2" id="IuW-VM-8Ua"/>
+                            <constraint firstItem="EdR-uW-mZd" firstAttribute="centerY" secondItem="D5B-e6-dKH" secondAttribute="centerY" constant="-4" id="IuW-VM-8Ua"/>
                             <constraint firstAttribute="trailing" secondItem="LR5-2U-gJm" secondAttribute="trailing" id="Kyq-6U-OYj"/>
                             <constraint firstItem="MCQ-jS-PIy" firstAttribute="bottom" secondItem="D5B-e6-dKH" secondAttribute="bottom" id="PDL-dy-rLt"/>
                             <constraint firstItem="D5B-e6-dKH" firstAttribute="height" secondItem="EdR-uW-mZd" secondAttribute="height" constant="90" id="PMQ-ZR-Dau"/>
