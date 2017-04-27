@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.3, Build 1
+//  The Trek v. 0.2.3, Build 2
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -8,7 +8,7 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 0.2.3:
+//Update Notes v. 0.2.3, buid 2:
 //  Custom alert windows
 //  Settings menu
 //  Welcome message (notification permission asked after explanation)
@@ -797,7 +797,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			history.removeObject(forKey: "savedBenBusyTimer")
 			history.removeObject(forKey: "fastVersion")
 			
-			setMessageList()
+			setMessageList() //All of this startNewGame()
 			
 			
 		//MARK - Load Game
@@ -849,14 +849,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		
 		//MARK - Welcome Message
-		if history.object(forKey: "previousRunTest") == nil {
-			history.set(true, forKey: "previousRunTest")
-			customAlert(type: "welcome", title: "Welcome to The Trek", message: "\nThis game tells the story of Ben and his journey through the wilderness of northern Pakistan. The story will unfold over the course of several days, keeping you updated through push notifications.\n\nPlease enable access to notifications when prompted.", button1: "Begin")
+		if delegate?.welcomeMessageSent == false {
 			
-			delegate?.welcomeMessageSent = true
-			delegate?.save.set([delegate?.welcomeMessageSent], forKey: "welcomeMessageSent")
-			
-			nextMessage() //delay
+			customAlert(type: "welcome", title: "Welcome to The Trek", message: "\nThis game tells the story of Ben and his journey through the wilderness of northern Pakistan. The story will unfold over the course of several days, keeping you updated through device notifications.\n\nPlease enable access to notifications if prompted.", button1: "Begin")
+				
+			nextMessage() //delay until "Begin" pressed
 			
 		//MARK - Start Game
 		} else {

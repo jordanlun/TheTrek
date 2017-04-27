@@ -45,6 +45,11 @@ class CustomAlertViewController: UIViewController {
 	}
 	
 	@IBAction func button3Tapped(_ sender: UIButton) {
+		if button3.titleLabel!.text == "Begin" {
+			delegate?.welcomeMessageSent = true
+			delegate?.save.set([self.delegate?.welcomeMessageSent], forKey: "welcomeMessageSent")
+		}
+		
 		if delegate?.notificationPermissionSent == false {
 			self.dismiss(animated: true, completion: delegate?.notificationPermission)
 		} else {

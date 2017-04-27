@@ -14,7 +14,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-	var vc : ViewController = ViewController()
+	//var vc : ViewController = ViewController() //creates new instance
+	//var vc: ViewController = UIApplication.shared.delegate as! ViewController //test
 	
 	let save = UserDefaults.standard
 	
@@ -95,6 +96,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	
 	//MARK: Notifications
+	
+	func notificationPermission() {
+		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
+			if accepted == true {
+				self.notificationsGranted = true
+			}
+		}
+		notificationPermissionSent = true
+		save.set([notificationPermissionSent], forKey: "notificationPermissionSent")
+	}
+	
 	func scheduleNotification(time: Double) {
 		
 		let trigger = UNTimeIntervalNotificationTrigger(
@@ -119,16 +131,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				print("Error: \(error)")
 			}
 		}
-	}
-	
-	func notificationPermission() {
-		UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {(accepted, error) in
-			if accepted == true {
-				self.notificationsGranted = true
-			}
-		}
-		notificationPermissionSent = true
-		save.set([notificationPermissionSent], forKey: "notificationPermissionSent")
 	}
 	
 	/*func application(_ application: UIApplication, // Should be able to replace in-app timer
