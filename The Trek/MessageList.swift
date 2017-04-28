@@ -153,7 +153,7 @@ let masterMessageList = [
 	"[WAIT|2",
 	"[RESPONSE|Ben?|1|You there?|1",
 	"[SYS|Static",
-	"[GAMEOVER|Ben lost consciousness and collapsed. He eventually froze to death.|How should I start?",
+	"[GAMEOVER|Ben lost consciousness and collapsed. He eventually froze\nto death.|How should I start?",
 	
 	"Yeah, someone would have to be pretty dumb to go out in this weather",
 	"So what should I do instead?",
