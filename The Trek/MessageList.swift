@@ -42,7 +42,7 @@ let masterMessageList = [
 	
 	"[RESEARCH|JACK:\nGot someone on line 2. Everyone else is busy. Should I patch you through?", //KEY
 	"[RESPONSE|Go ahead|WAIT|Nah|1",
-	"[GAMEOVER|The caller was ignored. He eventually froze to death.|RESEARCH",
+	"[GAMEOVER|The caller was ignored.\nHe eventually froze to death.|RESEARCH",
 	"[WAIT|0.5", //KEY; 0.5
 	"[SYS|Receiving transmission",
 	"[WAIT|0.5",
@@ -96,7 +96,7 @@ let masterMessageList = [
 	". . .", //KEY
 	"[WAIT|1.5",
 	"Besides the fact that I'm stranded out in the middle of nowhere trying not to freeze to death?",
-	"[RESPONSE|Are you injured?|1|Yes, besides that.|1",
+	"[RESPONSE|Yes, besides that.|1|Are you injured?|1",
 	"Miraculously, I seem to be ok, apart from a few bruises", //KEY
 	"And I've had a little bit of time to get over the shock of the whole thing",
 	"My cell phone's useless out here, so without any means of contacting anyone I just sat for a bit trying wrap my head around it all",
@@ -269,7 +269,7 @@ let masterMessageList = [
 	"Ok, here goes nothing",
 	"[SYS|Ben is busy|20",
 	"[SYS|Connection Lost",
-	"[GAMEOVER|Ben lost his footing and fell to his death.|Well, I'm now face to face with another mountain, and the trail I've been following curves off in a more northerly direction",
+	"[GAMEOVER|Ben lost his footing and fell\nto his death.|Well, I'm now face to face with another mountain, and the trail I've been following curves off in a more northerly direction",
 	
 	"I agree. One bad step, and that would be it", //KEY
 	"I'll just head back to the path and hope I don't end up too far north",
@@ -506,7 +506,10 @@ let masterMessageList = [
 	"[RESEARCH|They'll meet you at the Darbar Hotel, right in the middle of town. Huge glass windows. Can't miss it",
 	"[WAIT|1",
 	"Ok, tell them I'll be there",
+	"[WAIT|1",
+	"Ben out.",
 	"[WAIT|2",
-	
+	"[SYS|Connection Lost",
+	"[WAIT|2.5",
 	"[GAMEOVER|You have reached the end of the story.\n\nThanks for playing.|BEGINNING"
 ]

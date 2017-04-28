@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  The Trek v. 0.2.3, Build 2
+//  The Trek v. 1.0.0, Build 1
 //  Bundle ID: com.jordanlunsford.TheTrek
 //  SKU: 20170301
 //
@@ -8,7 +8,7 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 0.2.3, buid 2:
+//Update Notes v. 1.0.0, Build 1:
 //  Custom alert windows
 //  Settings menu
 //  Welcome message (notification permission asked after explanation)
@@ -52,7 +52,6 @@
 //  Custom table
 //  Variable message speed
 //  Advance forward, backward a specified number of KEY, RESPONSE, RESEARCH, SYS messages
-//  CoreData
 
 
 //UI:
@@ -69,16 +68,8 @@
 
 
 
-//NAME:
-//  100 Miles (or 100mi)
-//  100 Mile Trek
-
-
 import UIKit
 import UserNotifications
-//import CoreData
-//import Foundation
-
 
 
 
@@ -147,7 +138,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			saveGame()
 			table.reloadData()
 			scrollToBottom()
-			disableButtons()
+			disableButtons(clearTitles: true)
 			nextMessage()
 		} else {
 			print("Response Button Error")
@@ -167,7 +158,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			saveGame()
 			table.reloadData()
 			scrollToBottom()
-			disableButtons()
+			disableButtons(clearTitles: true)
 			nextMessage()
 		} else {
 			print("Response Button Error")
@@ -184,16 +175,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		settingsButton.isEnabled = true
 	}
 	
-	func disableButtons() {
+	func disableButtons(clearTitles: Bool = false) {
 		responseButton1.isHidden = true
 		responseButton2.isHidden = true
 		responseButton1.isEnabled = false
 		responseButton2.isEnabled = false
 		settingsButton.isHidden = true
 		settingsButton.isEnabled = false
+		
+		if clearTitles == true {
+			responseButton1.setTitle("", for: UIControlState())
+			responseButton2.setTitle("", for: UIControlState())
+		}
 	}
 	
-	@IBAction func newGameButtonPressed(_ sender: UIButton) { //Change text to Confirm new game?, then new game
+	@IBAction func newGameButtonPressed(_ sender: UIButton) {
 		if newGameConfirm == true {
 			newGameButton.setTitle("Start New Game?", for: UIControlState())
 			newGameConfirm = false
@@ -332,6 +328,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				// WAIT
 			} else if messageArray[0] == "WAIT" {
 				waitDelay = Double(messageArray[1])!
+				saveGame()
 				nextMessage()
 				
 				//GAMEOVER
@@ -339,8 +336,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				isGameOver = true
 				saveGame()
 				
-				responseButton1.setTitle("", for: UIControlState()) //temp find where buttons are enabling on TryAgain or NewGame
-				responseButton2.setTitle("", for: UIControlState()) //temp
 				tryAgainRevert = messageArray[2]
 				
 				if fastVersion == false {
@@ -374,7 +369,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//DEFAULT
 			} else {
 				messageDelayTime = 2.7 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
-				//messageDelayTime = 2.5 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/35.0
 			}
 		}
 		
@@ -399,7 +393,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	func pushMessage() {
 		
-		messageDelay.invalidate() //Needed?
+		messageDelay.invalidate()
 		
 		/* ATTEMPT: BEN TYPING
 		if messagesViewed[messagesViewed.count - 1] as! String == "..." {
@@ -429,7 +423,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	func benIsBusy() {
 		if fastVersion {
-			//time = 0.1 // MARK - Affects how long to hold on Ben Is Busy while fastVersion
 			nextMessage()
 			return
 		} else {
@@ -592,11 +585,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			
 			if msg != messageList[messageIndex] {
 				print("advanceToMessage error")
-				
 			}
 		}
 	}
-	
 	
 	func splitMessage(_ message : String) -> [String] {
 		var msg = ""
@@ -608,8 +599,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		return msg.components(separatedBy: "|")
 	}
 	
-	
-	// Call from AppDelegate applicationWillEnterForeground()
 	func updateBenIsBusyTimer() {
 		if history.object(forKey: "savedBenBusyTimer") != nil {
 			savedBenBusyTimer = (history.object(forKey: "savedBenBusyTimer")!  as! NSArray)[0] as! Date
@@ -624,22 +613,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 	}
-	
-	
-	
-	func alert(title: String, message: String) {
-		let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-		alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (action: UIAlertAction!) in }))
-		self.present(alert, animated: true, completion: nil)
-	}
-	
 
-	
 	func delay(_ delay: Double, closure: @escaping ()->()) {
 		DispatchQueue.main.asyncAfter(
 			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
 	}
-	
 	
 	func saveGame() { //Destructive
 		
@@ -780,9 +758,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 		
 		
-		//MARK - Force new game if no savedMessageList (v1.2.1)
+		//MARK - Force new game if no savedMessageList (v1.2.1, 4)
 		if history.object(forKey: "messageList") == nil {
 			forceNewGame = true
+		}
+		
+		//MARK – Set alphaVersion and reset progeess if save file exists
+		if history.object(forKey: "alphaVersion") == nil {
+			history.set([true], forKey: "alphaVersion")
+			
+			if history.object(forKey: "history") != nil {
+				forceNewGame = true
+			}
 		}
 		
 		
@@ -797,7 +784,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			history.removeObject(forKey: "savedBenBusyTimer")
 			history.removeObject(forKey: "fastVersion")
 			
-			setMessageList() //All of this startNewGame()
+			setMessageList()
 			
 			
 		//MARK - Load Game
