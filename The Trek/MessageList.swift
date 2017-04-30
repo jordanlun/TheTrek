@@ -29,7 +29,7 @@
 //  More chances for interaction
 //  More emotion
 
-//  Ideas: Animals, hallucinations, details (peeling skin, frostbite, blisters, numb mouth)
+//  Ideas: Animals, hallucinations, details (peeling skin, frostbite, blisters, numb mouth), cherries
 
 
 
@@ -38,16 +38,13 @@ import Foundation
 
 let masterMessageList = [
 	
-	//DAY 1
+//DAY 1
 	
 	"[RESEARCH|JACK:\nGot someone on line 2. Everyone else is busy. Should I patch you through?", //KEY
-	"[RESPONSE|Go ahead|WAIT|Nah|1",
+	"[RESPONSE|Go ahead|2|Nah|1",
 	"[GAMEOVER|The caller was ignored.\nHe eventually froze to death.|RESEARCH",
-	"[WAIT|0.5", //KEY; 0.5
 	"[SYS|Receiving transmission",
-	"[WAIT|0.5",
 	"Hello?",
-	"[WAIT|0.3",
 	"Is anyone there?",
 	"[RESPONSE|Yes, I'm here|1|Who is this?|My name is Ben",
 	"Finally! You've got to help me",
@@ -56,8 +53,8 @@ let masterMessageList = [
 	"My name is Ben", //KEY (2)
 	"A few days ago I came over to Pakistan on a business trip",
 	"My meetings wrapped up early and I still had a few days in the country",
-	"Knowing how I feel about mountains, a friend of mine suggested I fly up north",
-	"So I took his advice and found a travel agency with helicopter tours . . . and that's what brought me here",
+	"A friend of mine suggested I fly up north to see the mountains . . .",
+	". . . so I took his advice and found a travel agency with helicopter tours",
 	"[WAIT|1.5",
 	"As we were nearing Gil--",
 	"[SYS|Static",
@@ -176,7 +173,7 @@ let masterMessageList = [
 	"[SYS|Ben is busy|472", // KEY
 	
 	
-	//DAY 2
+//DAY 2
 	
 	"Well, good news is I didn’t freeze to death last night",
 	"But I don’t think there’s a single part of my body that doesn’t ache right now",
@@ -249,14 +246,17 @@ let masterMessageList = [
 	"So, I could keep following the trail and hope I don't end up too far north",
 	"Or I could stay true to my compass and cut straight across",
 	"[RESPONSE|Start climbing|1|Keep to the valley|Yeah, it's probably safer to stay down here",
+	
+	//CLIMBING
 	"Ok, I'll give it a shot. I must warn you though, I'm not much of a mountaineer",
 	"Seeing as I don't have any climbing gear, it looks like there are only two potential paths up the mountain . . .",
 	". . . one is farther north, one farther south. Which should I take?",
 	"[RESPONSE|South|1|North|Ok, north it is",
 	
+	//SOUTH
 	"Ok, south it is",
 	"It's a little ways away. I'll let you know when I start climbing",
-	"[SYS|Ben is busy|20",
+	"[SYS|Ben is busy|4",
 	"Ok, I've made it to the base of the mountain",
 	"It's gonna take a while, but hopefully this is quicker than going around",
 	"[SYS|Ben is busy|90",
@@ -279,55 +279,197 @@ let masterMessageList = [
 	"Do I want to try the north pass, or stick to the valley?",
 	"[RESPONSE|North|1|Keep to the valley|Yeah, it's probably safer to stay down here",
 	"Ok, hopefully I'll have more success this time", //KEY
-	"[SKIP|2",
-	"Ok, north it is",
-	"It's a bit of a walk to the base of the mountain. I'll let you know when I start climbing",
-	"[SYS|Ben is busy|20",
-	"I've reached the base",
-	"Wish me luck",
-	"[SKIP|WAIT",
+	"[SKIP|SYS",
 	
+	
+	//NORTH
+	"Ok, north it is",
+	"Wish me luck",
+	"[SYS|Ben is busy|133", //KEY
+	"Hey!",
+	"[WAIT|0.5",
+	"You there?",
+	"[RESPONSE|Yep|3|Nope|1",
+	"Haha. Real funny",
+	"[WAIT|1.5",
+	
+	"Well . . . I'm about half way to the top and the path has been steadily getting narrower", //KEY
+	"Not to mention, there's a gaping hole to my right",
+	"The ice shelf on my other side keeps getting closer, leaving less than a foot of space to walk on next to the giant crevasse", //KEY
+	"I'm having to lean into the ice wall just to keep away from the edge",
+	"Also, there's a corner up ahead and I have no idea if this tiny path keeps going after that",
+	"What do you think I should do? Turn back?",
+	"[RESPONSE|Keep going|Ok, I'll just see what's around the corner and then decide|Yes, turn back|1",
+	
+	"Ok. That's probably for the best",
+	"Still a little frustrating after all this work . . . it's not been easy getting this far",
+	"[WAIT|1",
+	"It'll be tricky turning myself around without slipping.",
+	"Give me a second",
+	"[WAIT|4",
+	"aahh!!",
+	"[SYS|Connection Lost",
+	"[GAMEOVER|As Ben turned, the ground suddenly shook beneath him and he lost his balance. He fell to his death.|The ice shelf on my other side keeps getting closer, leaving less than a foot of space to walk on next to the giant crevasse",
+	
+	"Ok, I'll just see what's around the corner and then decide", //KEY
+	"Be back in a minute",
+	"[SYS|Ben is busy|0.2",
+	"What was that?", //KEY
+	"That was freaky!",
+	"[WAIT|2.0",
+	"Just as I put the satphone away, everything started shaking . . . and for a moment and I almost lost my balance",
+	"I would have, too, had I not been leaning into the wall",
+	"[WAIT|1.5",
+	"Then it stopped",
+	"[WAIT|3",
+	"It must have been a slight earthquake",
+	"Man, I sure hope that doesn't happen again",
+	"[WAIT|2.5",
+	"Well",
+	"[WAIT|1.5",
+	"I've decided I'm not going to turn around",
+	"I'm gonna keep going this way",
+	"[RESPONSE|But...|1|You're right|3",
+	
+	"Nope. I appreciate your concern but I've made up my mind",
+	"[RESPONSE|Your funeral|1|Ok, careful|1",
+	
+	"Yep. I've made it this far. No sense giving up now", //KEY
+	"I'll get back to you in a bit",
+	"Who knows? The easy part might be waiting for me just around that corner",
+	"[SYS|Ben is busy|53",
+	"[SKIP|Phew! I can't believe I made it",
+	
+	//VALLEY
 	"Yeah, it's probably safer to stay down here", //KEY
 	"[SYS|Ben is busy|100",
 	"Um . . . I just reached the end of the valley",
 	"Looks like there's no way past this range without going over it, so I guess I'm climbing after all",
 	"However, it does look easier than the paths earlier",
 	"I'm gonna get climbing",
-	
-	"[WAIT|0", //KEY (Placeholder)
 	"[SYS|Ben is busy|110",
-	"Phew! I can't believe I made it",
+	
+	
+	
+	//THE TOP
+	"Phew! I can't believe I made it", //KEY
 	"I literally just free climbed a mountain. I mean, it wasn't straight up or anything . . . but still!",
 	"I'm at the top of the ridge, trying not to let the wind knock me off",
 	"There's a little valley ahead that seems to run straight down to the base of the mountain",
 	"[WAIT|2",
-	"Man, it's already starting to get dark. Hopefully going down is quicker than it was coming up . . .",
+	"It's already starting to get dark, though. Hopefully going down is quicker than it was coming up . . .",
 	". . . otherwise I'm gonna to be blindly stumbling down the mountain in the dark",
 	"[SYS|Ben is busy|50",
 	
+	//DARK
 	"Well, I warned you",
 	"Stumbling down the mountain in the dark is exactly what I'm doing",
 	"[WAIT|2",
-	"Argh . . .", //KEY!!
+	"Argh . . .",
 	"I can't seem to find a firm foothold anywhere!",
 	"I'm gonna twist an ankle if I keep this up!",
-	"I think my best shot would be to wait for morning to continue",
-	"It seems to be snowing harder too, but if I bundle up I think I have a chance of making it through the night",
-	"What do you think? Should I keep trying to fight my way to the bottom, or try to survive until morning up here?",
-	"[RESPONSE|Wait for morning|Ok, I guess I'll see if the little I have with me is enough to keep warm|Keep going|1",
+	"[WAIT|2",
+	"Hey!",
+	"[WAIT|1",
+	"It's kinda hard to tell, but it looks like there's a little cave over there.",
+	"I could hold out in it 'til morning and wait out this storm.",
+	"Should I check it out?",
+	"[RESPONSE|Check the cave|Sounds good|Keep going|1",
 	
-	"Yeah, I guess chances of survival up here are pretty slim",
-	"Ok, here we go",
-	"I just have to make it down in one piece",
+	"Yeah, I guess I should keep on trekking",
+	"It's crazy slippery . . .",
+	". . . but I just have to make it down in one piece, that's all",
 	"I think in the future I would . . .",
 	"ahh!",
 	"[SYS|Connection Lost",
-	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death.|Argh . . .",
+	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death.|Hey!",
+	
+	"Sounds good", //KEY
+	"It'll be nice to get out of this crazy wind . . .",
+	". . . and it's probably the best chance I have of staying warm",
+	"[SYS|Ben is busy|2.4",
+	
+	//THE CAVE
+	"I made it",
+	"And it is so much calmer in here",
+	"I'm gonna set up for the night",
+	"[WAIT|4.5",
+	"wha!!",
+	"[WAIT|2.5",
+	"I think I heard something",
+	"A rustling . . . in the bac-- in the back of the cave!",
+	"[WAIT|2.5",
+	"There's . . . there's something moving in here!",
+	"[WAIT|3",
+	"What do I do? I can't see anything!",
+	"Should I stay to find out what it is, or . . . ?",
+	"[WAIT|1",
+	"[RESPONSE|Get out of there|My thoughts exactly|Investigate\nthe noise|1",
+	
+	"Really? You want me to go towards the mysterious animal noises?",
+	"You must be nuts . . .",
+	"[WAIT|1.5",
+	". . . yet for some reason I still trust you",
+	"I must be as crazy as you are",
+	"[WAIT|4",
+	"oh-no no no no no no no no!",
+	"i can't do this!",
+	"[SYS|Ben is busy|4.5",
+	"Never doing anything like that again!",
+	"I don't know what that thing was . . . but it was big.",
+	"And those eyes . . . those huge green eyes . . .",
+	". . . suddenly they were staring straight at me!",
+	"[WAIT|1",
+	"That's when I lost it",
+	"[WAIT|1",
+	"It may be dark and cold out here . . . but it's still better than facing the monster in there",
+	"[WAIT|3.5",
+	"Well, now that that's over . . . what do I do?",
+	"[SKIP|It is very dark now. It's snowing harder too",
+	
+	"My thoughts exactly", //KEY
+	"[SYS|Ben is busy|1.2",
+	"Ok, I'm out",
+	"That was frightening",
+	"[WAIT|3.5",
+	"You know what's ironic?",
+	"[RESPONSE|What?|1|Enlighten me|1",
+	"That possibly vicious animal back there that scared me out of my wits . . .",
+	". . . could've been a furry bunny for all I know",
+	"[WAIT|1",
+	"I wasn't about to wait around to find out though",
+	"[WAIT|2",
+	"[SKIP|So now what?",
+	
+	//BACK OUTSIDE
+	"Yeah, I guess I should keep on trekking", //KEY
+	"[WAIT|1.5",
+	"It is getting very dark now, though",
+	"[SKIP|3",
+	
+	"So now what?", //KEY
+	"It is very dark now. It's snowing harder too", //KEY
+	"But if I bundle up I might make it through the night up here", //KEY
+	"[WAIT|1",
+	"I guess chances of survival out here are slim either way", //KEY
+	"What do you think?",
+	"Should I keep trying to fight my way to the bottom?",
+	"Or try to last until morning up here without freezing to death?",
+	"[RESPONSE|Keep going|1|Wait for morning|Ok, I guess I'll see if the little I have with me is enough to keep warm",
+	
+	//(duplicate)
+	"Ok, here we go",
+	"It's crazy slippery . . .",
+	". . . but I just have to make it down in one piece, that's all",
+	"I think in the future I would . . .",
+	"ahh!",
+	"[SYS|Connection Lost",
+	"[GAMEOVER|Ben slipped and hit his head on a rock. He eventually froze to death.|I guess chances of survival out here are slim either way",
 	
 	"Ok, I guess I'll see if the little I have with me is enough to keep warm", //KEY
 	"[WAIT|1.5",
 	"Can't see a thing out here",
-	"If only I thought to bring a flashlight with me.",
+	"I seriously wish I brought a flashlight with me.",
 	"Or a blanket",
 	"You don't really think of these things living in the land of 24/7 electricity and year-round warmth",
 	"I guess I just sleep right where I am. Can't very well see any alternatives",
@@ -337,7 +479,7 @@ let masterMessageList = [
 	"I'll try . . .",
 	"[SYS|Ben is busy|500", //KEY
 	
-	//DAY 3
+//DAY 3
 	
 	"Wha-? What's going on?",
 	"What was that?",
@@ -506,9 +648,9 @@ let masterMessageList = [
 	"[RESEARCH|They'll meet you at the Darbar Hotel, right in the middle of town. Huge glass windows. Can't miss it",
 	"[WAIT|1",
 	"Ok, tell them I'll be there",
-	"[WAIT|1",
+	"[WAIT|0.75",
 	"Ben out.",
-	"[WAIT|2",
+	"[WAIT|1.5",
 	"[SYS|Connection Lost",
 	"[WAIT|2.5",
 	"[GAMEOVER|You have reached the end of the story.\n\nThanks for playing.|BEGINNING"

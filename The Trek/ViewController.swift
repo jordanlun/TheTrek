@@ -16,8 +16,7 @@
 //  Optimizations (dramatic pauses are handled much more efficiently and naturally)
 
 
-
-//Beta Submission
+//App Store Submission:
 //  Remove unneeded fonts, images, UI elements
 //  Check:
 //    Try all buttons
@@ -25,10 +24,6 @@
 //    forceNewGame = false, fastVersionToggle = false
 //    Bundle identifier, version & build
 //    Info.plist "MinimumOSVersion: 10.0.0"
-
-//App Store Submission:
-//    Remove "Check for new version," betaProgressReset (viewDidLoad, viewDidAppear)
-
 //  App Description:
 //    Include Raleway Font Copyright Notice
 //    Check Minion UI copyright
@@ -80,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	var forceNewGame = false
-	let fastVersionToggle = true
+	let fastVersionToggle = false
 
 	var fastVersion = false
 	
@@ -88,7 +83,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var messagesViewed = [String]()
 	var messageTypes = [String]()
 	var messagePath = [String]() //Not really used
-	var messageIndex = -1 // Search the wreckage: 83, Default: -1
+	var messageIndex = -1 // Search the wreckage: 83, South or North: 200, Default: -1
 	
 	var newMessage = ""
 	var messageArray = [String]()
@@ -368,7 +363,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 		//DEFAULT
 			} else {
-				messageDelayTime = 2.7 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
+				messageDelayTime = 3.2 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
 			}
 		}
 		
@@ -427,6 +422,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			return
 		} else {
 			time = Double(messageArray[2])! * 60.0
+			//time = 2
 		}
 		
 		//MARK - Schedule Notification
@@ -540,7 +536,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		settingsButton.isHidden = true
 		settingsButton.isEnabled = false
 		
-		messageIndex = -1
+		messageIndex = -1 //-1
 		
 		messagesViewed = []
 		messageTypes = []
