@@ -88,7 +88,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                             <button hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="riY-6j-mHh">
-                                <rect key="frame" x="165" y="599" width="45" height="45"/>
+                                <rect key="frame" x="165.5" y="599" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bDe-tv-lLH"/>
                                     <constraint firstAttribute="width" constant="45" id="zpy-Id-qEb"/>
@@ -100,7 +100,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmX-mc-edv">
-                                <rect key="frame" x="68" y="596" width="50" height="51"/>
+                                <rect key="frame" x="68.5" y="596" width="50" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="S6c-sN-WoZ"/>
                                     <constraint firstAttribute="height" constant="51" id="jZd-if-JaB"/>
@@ -112,7 +112,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Ns-Fr-1Er">
-                                <rect key="frame" x="20" y="596" width="145" height="51"/>
+                                <rect key="frame" x="20" y="596" width="145.5" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="OZj-o2-uvC"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="iy5-xu-PCu"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="1n9-6d-Snu">
-                                <rect key="frame" x="210" y="596" width="145" height="51"/>
+                                <rect key="frame" x="210.5" y="596" width="144.5" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="Mar-Y8-eFk"/>
                                     <constraint firstAttribute="height" constant="51" id="uHy-Ht-9gs"/>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="miD-mX-j74">
-                                <rect key="frame" x="30" y="596" width="125" height="51"/>
+                                <rect key="frame" x="30.5" y="596" width="125" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="125" id="pRc-09-QV0"/>
                                     <constraint firstAttribute="height" constant="51" id="s5h-rf-KGp"/>
@@ -264,13 +264,13 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Button (d. gray)" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-e6-dKH">
-                                <rect key="frame" x="43.5" y="266" width="288" height="136"/>
+                                <rect key="frame" x="43.5" y="265.5" width="288" height="136"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Cna-pm-x6y"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El2-Ty-0WB">
-                                <rect key="frame" x="43" y="282.5" width="288" height="17"/>
+                                <rect key="frame" x="43.5" y="282.5" width="288" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="nfx-IS-jXV"/>
                                 </constraints>
@@ -279,7 +279,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The satphone ran out of juice. Ben fought through the blizzard for hours before collapsing from exhaustion." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-uW-mZd">
-                                <rect key="frame" x="59" y="304.5" width="258" height="53"/>
+                                <rect key="frame" x="58.5" y="304.5" width="258" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Tju-LA-sps"/>
                                 </constraints>
@@ -288,7 +288,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-6n-vEV">
-                                <rect key="frame" x="115.5" y="356" width="144" height="46"/>
+                                <rect key="frame" x="115.5" y="355.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="yy7-SB-FKg"/>
                                 </constraints>
@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-jS-PIy">
-                                <rect key="frame" x="187.5" y="356" width="144" height="46"/>
+                                <rect key="frame" x="187.5" y="355.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="ibn-a2-c9e"/>
                                 </constraints>
@@ -314,7 +314,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-43-Hya">
-                                <rect key="frame" x="43.5" y="356" width="144" height="46"/>
+                                <rect key="frame" x="43.5" y="355.5" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="hMN-fm-1X5"/>
                                 </constraints>

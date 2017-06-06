@@ -9,10 +9,10 @@
 //
 
 //Update Notes v. 1.0.0, Build 1:
+//  Story changes
 //  Custom alert windows
 //  Settings menu
 //  Welcome message (notification permission asked after explanation)
-//  Story tweaks
 //  Optimizations (dramatic pauses are handled much more efficiently and naturally)
 
 
@@ -25,13 +25,17 @@
 //    Bundle identifier, version & build
 //    Info.plist "MinimumOSVersion: 10.0.0"
 //  App Description:
-//    Include Raleway Font Copyright Notice
-//    Check Minion UI copyright
-
+//    Note: Copyright information on a couple of the interface elements can be found at the bottom of the page at jordanlunsford.com/the-trek.
 
 
 
 //UX:
+//  Error handling (Restart story on error?)
+//    Currently sends game end alert on advance and crashes on revert
+
+//  Save gameVersion
+//    If not newest gameVersion, just updated and can send alert
+
 //  Delay game start until after welcome message and notification permission
 
 //  setStoryVersion at safe "checkpoints" (locate new messageIndex)
@@ -75,8 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	var forceNewGame = false
-	let fastVersionToggle = false
-
+	let fastVersionToggle = true
+	
 	var fastVersion = false
 	
 	var messageList = [String]()
@@ -110,7 +114,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var fontDefault = UIFont (name: "Raleway-Light", size: 16)
 	
 	
-
+	
 //BUTTONS
 	@IBOutlet var responseButton1: UIButton!
 	@IBOutlet var responseButton2: UIButton!
@@ -125,11 +129,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if messageArray != []  {
 			messagesViewed.append(messageArray[1])
 			messageTypes.append("RESPONSE")
-		
+			
 			for path in messageArray[2].components(separatedBy: "->") {
 				messagePath.append(path)
 			}
-		
+			
 			saveGame()
 			table.reloadData()
 			scrollToBottom()
@@ -145,7 +149,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if messageArray != []  {
 			messagesViewed.append(messageArray[3])
 			messageTypes.append("RESPONSE")
-		
+			
 			for path in messageArray[4].components(separatedBy: "->") {
 				messagePath.append(path)
 			}
@@ -283,7 +287,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	
 //MAIN FUNCTIONS
-	func nextMessage(skipDelay : Bool = false) {
+	@objc func nextMessage(skipDelay : Bool = false) {
 		
 		//MESSAGE QUEUE
 		if messagePath.count > 0 {
@@ -355,7 +359,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//RESPONSE
 		if messageArray[0] == "RESPONSE"{
 			messageDelayTime = 1
-
+			
 		//FIRST MESSAGE
 		} else {
 			if messagesViewed.count <= 1 {
@@ -386,15 +390,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	
-	func pushMessage() {
+	@objc func pushMessage() {
 		
 		messageDelay.invalidate()
 		
-		/* ATTEMPT: BEN TYPING
-		if messagesViewed[messagesViewed.count - 1] as! String == "..." {
-			messagesViewed.removeLast()
-			table.reloadData()
-		}*/
 		if messageArray[0] != "RESPONSE" {
 			messageTypes.append(messageArray[0])
 			messagesViewed.append(messageArray[1])
@@ -472,7 +471,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 	}
 	
-
+	
 	func tryAgain() {
 		
 		//MARK - Can revert to any unique message or most recent research or response item
@@ -598,7 +597,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	func updateBenIsBusyTimer() {
 		if history.object(forKey: "savedBenBusyTimer") != nil {
 			savedBenBusyTimer = (history.object(forKey: "savedBenBusyTimer")!  as! NSArray)[0] as! Date
-		
+			
 			let now = Date()
 			let difference = savedBenBusyTimer.timeIntervalSince(now)
 			
@@ -609,7 +608,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 	}
-
+	
 	func delay(_ delay: Double, closure: @escaping ()->()) {
 		DispatchQueue.main.asyncAfter(
 			deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
@@ -634,7 +633,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	}
 	
 	
-
+	
 	
 //TABLE PROPERTIES
 	@IBOutlet var table: UITableView!
@@ -677,20 +676,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if contentForCell.characters.last! != "." && contentForCell.characters.last! != "?" && contentForCell.characters.last! != "," && contentForCell.characters.last! != "!" && contentForCell.characters.last! != ":" && contentForCell.characters.last! != ";" && contentForCell.characters.last! != "-" && messageTypes[indexPath.row] != "SYS" {
 			contentForCell = "\(contentForCell)."
 		}
-			
+		
 		//SYS
 		if messageTypes[indexPath.row] == "SYS" {
 			cell.textLabel!.text = "[\(contentForCell)]"
 			cell.textLabel!.textColor = UIColor(red: 150/255, green: 220/255, blue: 150/255, alpha: 1.0)
 			cell.textLabel!.textAlignment = NSTextAlignment.center
-		
+			
 		//RESPONSE
 		} else if messageTypes[indexPath.row] == "RESPONSE" {
 			contentForCell = contentForCell.replacingOccurrences(of: "\n", with: " ")
 			cell.textLabel!.text = contentForCell
 			cell.textLabel!.textColor = UIColor(red: 60/255, green: 172/255, blue: 155/255, alpha: 1.0)
 			cell.textLabel!.textAlignment = NSTextAlignment.right
-		
+			
 		//RESEARCH
 		} else if messageTypes[indexPath.row] == "RESEARCH" {
 			cell.textLabel!.text = contentForCell
@@ -718,8 +717,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		return UITableViewAutomaticDimension
 	}*/
 	
-
-
+	
+	
 	
 //VIEWDIDLOAD
 	override func viewDidLoad() {
@@ -835,7 +834,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if delegate?.welcomeMessageSent == false {
 			
 			customAlert(type: "welcome", title: "Welcome to The Trek", message: "\nThis game tells the story of Ben and his journey through the wilderness of northern Pakistan. The story will unfold over the course of several days, keeping you updated through device notifications.\n\nPlease enable access to notifications if prompted.", button1: "Begin")
-				
+			
 			nextMessage() //delay until "Begin" pressed
 			
 		//MARK - Start Game
@@ -862,7 +861,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			}
 		}
 	}
-
+	
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()

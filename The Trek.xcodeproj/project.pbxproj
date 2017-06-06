@@ -228,18 +228,18 @@
 					3EC7764B1C6269C40054D8BE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = KDWFKVYU8J;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0900;
 					};
 					3EC776621C6269C50054D8BE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = QCB3X939WB;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0900;
 						TestTargetID = 3EC7764B1C6269C40054D8BE;
 					};
 					3EC7766D1C6269C50054D8BE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = QCB3X939WB;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0900;
 						TestTargetID = 3EC7764B1C6269C40054D8BE;
 					};
 				};
@@ -459,7 +459,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -477,7 +478,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -490,7 +492,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Trek.app/The Trek";
 			};
 			name = Debug;
@@ -503,7 +506,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/The Trek.app/The Trek";
 			};
 			name = Release;
@@ -515,7 +519,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "The Trek";
 				USES_XCTRUNNER = YES;
 			};
@@ -528,7 +533,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jordanlun.The-TrekUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "The Trek";
 				USES_XCTRUNNER = YES;
 			};

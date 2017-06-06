@@ -9,6 +9,8 @@
 
 
 //STORY:
+//  Tremor if keep to valley
+
 //  Explain Ben is Busy (Alert, notification explanation, or more Ben)
 
 //  Option to search the wreckage twice
@@ -29,7 +31,7 @@
 //  More chances for interaction
 //  More emotion
 
-//  Ideas: Animals, hallucinations, details (peeling skin, frostbite, blisters, numb mouth), cherries
+//  Ideas: Hallucinations, details (peeling skin, frostbite, blisters, numb mouth), cherries
 
 
 
