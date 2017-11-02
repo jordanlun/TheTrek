@@ -8,12 +8,8 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 1.0.0, Build 1:
-//  Story changes
-//  Custom alert windows
-//  Settings menu
-//  Welcome message (notification permission asked after explanation)
-//  Optimizations (dramatic pauses are handled much more efficiently and naturally)
+//Update Notes v. 1.0.1, Build 1:
+//  Updated for future iOS compatibility
 
 
 //App Store Submission:

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,23 +19,23 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="N0b-9k-h1H">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8V-vL-EjQ">
-                                <rect key="frame" x="0.0" y="576" width="375" height="91"/>
+                                <rect key="frame" x="0.0" y="687" width="375" height="125"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zgI-Ys-ouJ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="512-SB-Lwt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="lRR-RR-8iK">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="91"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <blurEffect style="dark"/>
@@ -43,39 +43,29 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="91" id="SWN-r5-6DT"/>
+                                    <constraint firstAttribute="height" constant="125" id="SWN-r5-6DT"/>
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SettingsButton" translatesAutoresizingMaskIntoConstraints="NO" id="ZMV-1U-1Hz">
-                                <rect key="frame" x="177.5" y="611.5" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="YIB-Id-2zn"/>
-                                    <constraint firstAttribute="width" constant="20" id="mi3-AZ-yo1"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="N0b-9k-h1H" secondAttribute="trailing" id="Bu0-sj-ZCf"/>
                             <constraint firstItem="H8V-vL-EjQ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Leg-Ot-CVq"/>
                             <constraint firstItem="N0b-9k-h1H" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="UJR-d8-jZV"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="N0b-9k-h1H" secondAttribute="bottom" id="YTk-yf-IOa"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="N0b-9k-h1H" secondAttribute="bottom" constant="-34" id="YTk-yf-IOa"/>
                             <constraint firstAttribute="trailing" secondItem="H8V-vL-EjQ" secondAttribute="trailing" id="d0T-Bb-5Og"/>
-                            <constraint firstItem="ZMV-1U-1Hz" firstAttribute="centerY" secondItem="H8V-vL-EjQ" secondAttribute="centerY" id="iTI-yY-gjs"/>
-                            <constraint firstItem="N0b-9k-h1H" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="qgQ-ge-fj6"/>
-                            <constraint firstItem="ZMV-1U-1Hz" firstAttribute="centerX" secondItem="H8V-vL-EjQ" secondAttribute="centerX" id="wOm-Lo-NEv"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="H8V-vL-EjQ" secondAttribute="bottom" id="xXe-qi-p9e"/>
+                            <constraint firstItem="N0b-9k-h1H" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="-44" id="qgQ-ge-fj6"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="H8V-vL-EjQ" secondAttribute="bottom" constant="-34" id="xXe-qi-p9e"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="386.35682158920542"/>
+            <point key="canvasLocation" x="85.599999999999994" y="385.71428571428572"/>
         </scene>
     </scenes>
     <resources>
         <image name="BackgroundGradient" width="750" height="1334"/>
-        <image name="SettingsButton" width="24" height="24"/>
     </resources>
 </document>
