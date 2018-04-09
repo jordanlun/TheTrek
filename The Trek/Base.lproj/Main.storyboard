@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -258,13 +258,13 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Button (d. gray)" translatesAutoresizingMaskIntoConstraints="NO" id="D5B-e6-dKH">
-                                <rect key="frame" x="43.666666666666657" y="338.66666666666669" width="288" height="135.66666666666669"/>
+                                <rect key="frame" x="43.666666666666657" y="339" width="288" height="135.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Cna-pm-x6y"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El2-Ty-0WB">
-                                <rect key="frame" x="43.666666666666657" y="355.66666666666669" width="288" height="17"/>
+                                <rect key="frame" x="43.666666666666657" y="356" width="288" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="nfx-IS-jXV"/>
                                 </constraints>
@@ -273,7 +273,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The satphone ran out of juice. Ben fought through the blizzard for hours before collapsing from exhaustion." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-uW-mZd">
-                                <rect key="frame" x="58.666666666666657" y="377.66666666666669" width="258" height="52.666666666666686"/>
+                                <rect key="frame" x="58.666666666666657" y="378" width="258" height="52.666666666666686"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Tju-LA-sps"/>
                                 </constraints>
@@ -282,7 +282,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-6n-vEV">
-                                <rect key="frame" x="115.66666666666669" y="428.33333333333331" width="144" height="46"/>
+                                <rect key="frame" x="115.66666666666669" y="428.66666666666669" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="yy7-SB-FKg"/>
                                 </constraints>
@@ -295,7 +295,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCQ-jS-PIy">
-                                <rect key="frame" x="187.66666666666663" y="428.33333333333331" width="144" height="46"/>
+                                <rect key="frame" x="187.66666666666663" y="428.66666666666669" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="ibn-a2-c9e"/>
                                 </constraints>
@@ -308,7 +308,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAp-43-Hya">
-                                <rect key="frame" x="43.666666666666657" y="428.33333333333331" width="144" height="46"/>
+                                <rect key="frame" x="43.666666666666657" y="428.66666666666669" width="144" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="hMN-fm-1X5"/>
                                 </constraints>

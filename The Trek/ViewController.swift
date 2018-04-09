@@ -8,8 +8,8 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 1.0.1, Build 1:
-//  Updated for future iOS compatibility
+//Update Notes v. 1.1, Build 1:
+//  Updated for the iPhone X
 
 
 //App Store Submission:
@@ -26,7 +26,8 @@
 
 
 //UX:
-//  Error handling (Restart story on error?)
+//  Error handling
+//    Try to restore to last save, if not reset game
 //    Currently sends game end alert on advance and crashes on revert
 
 //  Save gameVersion
@@ -295,7 +296,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		newMessage = messageList[messageIndex]
 		
-		if newMessage.characters.first! == "[" {
+		if newMessage.first! == "[" {
 			
 			messageArray = splitMessage(newMessage)
 			
@@ -363,7 +364,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 				
 		//DEFAULT
 			} else {
-				messageDelayTime = 3.2 + Double(messagesViewed[messagesViewed.count - 1].characters.count)/40.0
+				messageDelayTime = 3.2 + Double(messagesViewed[messagesViewed.count - 1].count)/40.0
 			}
 		}
 		
@@ -531,7 +532,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		settingsButton.isHidden = true
 		settingsButton.isEnabled = false
 		
-		messageIndex = -1 //-1
+		messageIndex = -1
 		
 		messagesViewed = []
 		messageTypes = []
@@ -580,14 +581,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		}
 	}
 	
-	func splitMessage(_ message : String) -> [String] {
-		var msg = ""
-		for char in message.characters {
+	func splitMessage(_ msgIn : String) -> [String] {
+		var msgOut = ""
+		for char in msgIn {
 			if char != "[" && char != "]" {
-				msg.append(char)
+				msgOut.append(char)
 			}
 		}
-		return msg.components(separatedBy: "|")
+		return msgOut.components(separatedBy: "|")
 	}
 	
 	func updateBenIsBusyTimer() {
@@ -669,7 +670,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//cell.textLabel!.text = ""
 		
 		//MARK - Add period to message
-		if contentForCell.characters.last! != "." && contentForCell.characters.last! != "?" && contentForCell.characters.last! != "," && contentForCell.characters.last! != "!" && contentForCell.characters.last! != ":" && contentForCell.characters.last! != ";" && contentForCell.characters.last! != "-" && messageTypes[indexPath.row] != "SYS" {
+		if contentForCell.last! != "." && contentForCell.last! != "?" && contentForCell.last! != "," && contentForCell.last! != "!" && contentForCell.last! != ":" && contentForCell.last! != ";" && contentForCell.last! != "-" && messageTypes[indexPath.row] != "SYS" {
 			contentForCell = "\(contentForCell)."
 		}
 		
@@ -730,8 +731,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		//table.estimatedRowHeight = 96
 		//table.rowHeight = UITableViewAutomaticDimension
 		
-		fontDefault = UIFont (name: "Raleway-Light", size: 16)
-		fontResponse = UIFont (name: "Raleway-MediumItalic", size: 16)
+		fontDefault = UIFont(name: "Raleway-Light", size: 16)
+		fontResponse = UIFont(name: "Raleway-MediumItalic", size: 16)
 		
 		responseButton1.titleLabel!.textAlignment = NSTextAlignment.center
 		responseButton2.titleLabel!.textAlignment = NSTextAlignment.center
@@ -754,7 +755,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			forceNewGame = true
 		}
 		
-		//MARK – Set alphaVersion and reset progeess if save file exists
+		//MARK – Set alphaVersion and reset progress if save file exists
 		if history.object(forKey: "alphaVersion") == nil {
 			history.set([true], forKey: "alphaVersion")
 			
@@ -846,8 +847,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 					savedBenBusyTimer = (history.object(forKey: "savedBenBusyTimer")!  as! NSArray)[0] as! Date
 				}
 				
-				let now = Date()
-				let difference = savedBenBusyTimer.timeIntervalSince(now)
+				let difference = savedBenBusyTimer.timeIntervalSinceNow
 				if difference <= 0 {
 					nextMessage(skipDelay : true)
 					table.reloadData()
