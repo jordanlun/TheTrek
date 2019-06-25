@@ -88,7 +88,7 @@ class CustomAlertViewController: UIViewController {
 		titleLabel.text = titleText
 		descriptionLabel.text = messageText
 		
-		button3.setTitle(button1Text, for: UIControlState())
+		button3.setTitle(button1Text, for: UIControl.State())
 		
 		
 		/*

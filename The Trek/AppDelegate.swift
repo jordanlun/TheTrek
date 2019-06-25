@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var notificationsGranted = false
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		
 		//MARK: Load Values
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		let content = UNMutableNotificationContent()
 		content.body = "[Ben is waiting for you]"
-		content.sound = UNNotificationSound.default()
+		content.sound = UNNotificationSound.default
 		content.badge = 1
 		
 		let request = UNNotificationRequest(

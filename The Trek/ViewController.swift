@@ -180,19 +180,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		settingsButton.isEnabled = false
 		
 		if clearTitles == true {
-			responseButton1.setTitle("", for: UIControlState())
-			responseButton2.setTitle("", for: UIControlState())
+			responseButton1.setTitle("", for: UIControl.State())
+			responseButton2.setTitle("", for: UIControl.State())
 		}
 	}
 	
 	@IBAction func newGameButtonPressed(_ sender: UIButton) {
 		if newGameConfirm == true {
-			newGameButton.setTitle("Start New Game?", for: UIControlState())
+			newGameButton.setTitle("Start New Game?", for: UIControl.State())
 			newGameConfirm = false
 		} else {
 			newGameButton.isHidden = true
 			newGameButton.isEnabled = false
-			newGameButton.setTitle("New Game", for: UIControlState())
+			newGameButton.setTitle("New Game", for: UIControl.State())
 			newGameConfirm = true
 			startNewGame()
 		}
@@ -200,14 +200,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	@IBAction func newGameButtonPressed2(_ sender: UIButton) {
 		if newGameConfirm == true {
-			newGameButton2.setTitle("Start New Game?", for: UIControlState())
+			newGameButton2.setTitle("Start New Game?", for: UIControl.State())
 			newGameConfirm = false
 		} else {
 			tryAgainButton.isHidden = true
 			tryAgainButton.isEnabled = false
 			newGameButton2.isHidden = true
 			newGameButton2.isEnabled = false
-			newGameButton2.setTitle("New Game", for: UIControlState())
+			newGameButton2.setTitle("New Game", for: UIControl.State())
 			newGameConfirm = true
 			startNewGame()
 		}
@@ -219,7 +219,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		tryAgainButton.isEnabled = false
 		newGameButton2.isHidden = true
 		newGameButton2.isEnabled = false
-		newGameButton2.setTitle("New Game", for: UIControlState())
+		newGameButton2.setTitle("New Game", for: UIControl.State())
 		newGameConfirm = true
 		tryAgain()
 	}
@@ -244,7 +244,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		
 		newGameButton.isHidden = true
 		newGameButton.isEnabled = false
-		newGameButton.setTitle("New Game", for: UIControlState())
+		newGameButton.setTitle("New Game", for: UIControl.State())
 		newGameConfirm = true
 		
 		enableButtons()
@@ -302,8 +302,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 			
 				// RESPONSE
 			if messageArray[0] == "RESPONSE" {
-				responseButton1.setTitle(messageArray[1], for: UIControlState())
-				responseButton2.setTitle(messageArray[3], for: UIControlState())
+				responseButton1.setTitle(messageArray[1], for: UIControl.State())
+				responseButton2.setTitle(messageArray[3], for: UIControl.State())
 				setMessageDelay(skipDelay : skipDelay)
 				
 				// RESEARCH
@@ -445,7 +445,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		if type == "gameover" {
 			
 			if messageIndex == 2 {
-				newGameButton.setTitle("Try Again", for: UIControlState())
+				newGameButton.setTitle("Try Again", for: UIControl.State())
 				newGameConfirm = false
 			}
 			
@@ -664,7 +664,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "Message")
+		let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Message")
 		var contentForCell = messagesViewed[indexPath.row]
 		
 		//cell.textLabel!.text = ""
