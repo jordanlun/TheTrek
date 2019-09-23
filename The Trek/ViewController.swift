@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	
 //INITIAL VARIABLES
 	var forceNewGame = false
-	let fastVersionToggle = true
+	let fastVersionToggle = false
 	
 	var fastVersion = false
 	

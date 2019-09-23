@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E8E341D233923AA000929A3 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341A233923AA000929A3 /* Raleway-Light.ttf */; };
+		3E8E341E233923AA000929A3 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341A233923AA000929A3 /* Raleway-Light.ttf */; };
+		3E8E341F233923AA000929A3 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341A233923AA000929A3 /* Raleway-Light.ttf */; };
+		3E8E3420233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341B233923AA000929A3 /* Raleway-MediumItalic.ttf */; };
+		3E8E3421233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341B233923AA000929A3 /* Raleway-MediumItalic.ttf */; };
+		3E8E3422233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341B233923AA000929A3 /* Raleway-MediumItalic.ttf */; };
+		3E8E3423233923AA000929A3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341C233923AA000929A3 /* Raleway-Medium.ttf */; };
+		3E8E3424233923AA000929A3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341C233923AA000929A3 /* Raleway-Medium.ttf */; };
+		3E8E3425233923AA000929A3 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E8E341C233923AA000929A3 /* Raleway-Medium.ttf */; };
 		3EC057091E8D98C0007FED0C /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC057081E8D98C0007FED0C /* MessageList.swift */; };
-		3EC0570D1E8DCCBC007FED0C /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0570C1E8DCCBC007FED0C /* Raleway-Medium.ttf */; };
 		3EC776501C6269C40054D8BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7764F1C6269C40054D8BE /* AppDelegate.swift */; };
 		3EC776521C6269C40054D8BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776511C6269C40054D8BE /* ViewController.swift */; };
 		3EC776551C6269C40054D8BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC776531C6269C40054D8BE /* Main.storyboard */; };
@@ -18,8 +26,6 @@
 		3EC776681C6269C50054D8BE /* The_TrekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776671C6269C50054D8BE /* The_TrekTests.swift */; };
 		3EC776731C6269C50054D8BE /* The_TrekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC776721C6269C50054D8BE /* The_TrekUITests.swift */; };
 		3ED3BDE61EA0553B0083794B /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED3BDE51EA0553B0083794B /* CustomAlertViewController.swift */; };
-		3EFB7C6B1E60BA8200F05909 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */; };
-		3EFB7C6D1E60BA8600F05909 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
-		3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
+		3E8E341A233923AA000929A3 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "Resources/Fonts/Raleway-Light.ttf"; sourceTree = "<group>"; };
+		3E8E341B233923AA000929A3 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-MediumItalic.ttf"; path = "Resources/Fonts/Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
+		3E8E341C233923AA000929A3 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Medium.ttf"; path = "Resources/Fonts/Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		3E8E342623392459000929A3 /* The Trek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "The Trek.entitlements"; sourceTree = "<group>"; };
 		3EC057081E8D98C0007FED0C /* MessageList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageList.swift; sourceTree = "<group>"; };
-		3EC0570C1E8DCCBC007FED0C /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
 		3EC7764C1C6269C40054D8BE /* The Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC7764F1C6269C40054D8BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EC776511C6269C40054D8BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +116,7 @@
 		3EC7764E1C6269C40054D8BE /* The Trek */ = {
 			isa = PBXGroup;
 			children = (
+				3E8E342623392459000929A3 /* The Trek.entitlements */,
 				3EC7764F1C6269C40054D8BE /* AppDelegate.swift */,
 				3EC776511C6269C40054D8BE /* ViewController.swift */,
 				3EC057081E8D98C0007FED0C /* MessageList.swift */,
@@ -152,9 +160,9 @@
 		3EFB7C671E60BA2800F05909 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3E29C0D71E5D334900634A27 /* Raleway-Light.ttf */,
-				3EC0570C1E8DCCBC007FED0C /* Raleway-Medium.ttf */,
-				3E29C0DE1E5D361A00634A27 /* Raleway-MediumItalic.ttf */,
+				3E8E341A233923AA000929A3 /* Raleway-Light.ttf */,
+				3E8E341C233923AA000929A3 /* Raleway-Medium.ttf */,
+				3E8E341B233923AA000929A3 /* Raleway-MediumItalic.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -222,7 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Jordan Lunsford";
 				TargetAttributes = {
 					3EC7764B1C6269C40054D8BE = {
@@ -246,10 +254,9 @@
 			};
 			buildConfigurationList = 3EC776471C6269C40054D8BE /* Build configuration list for PBXProject "The Trek" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -271,10 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC7765D1C6269C40054D8BE /* LaunchScreen.storyboard in Resources */,
-				3EC0570D1E8DCCBC007FED0C /* Raleway-Medium.ttf in Resources */,
-				3EFB7C6B1E60BA8200F05909 /* Raleway-MediumItalic.ttf in Resources */,
-				3EFB7C6D1E60BA8600F05909 /* Raleway-Light.ttf in Resources */,
 				3EC7765A1C6269C40054D8BE /* Assets.xcassets in Resources */,
+				3E8E3423233923AA000929A3 /* Raleway-Medium.ttf in Resources */,
+				3E8E3420233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */,
+				3E8E341D233923AA000929A3 /* Raleway-Light.ttf in Resources */,
 				3EC776551C6269C40054D8BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +290,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8E341E233923AA000929A3 /* Raleway-Light.ttf in Resources */,
+				3E8E3424233923AA000929A3 /* Raleway-Medium.ttf in Resources */,
+				3E8E3421233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +300,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8E341F233923AA000929A3 /* Raleway-Light.ttf in Resources */,
+				3E8E3425233923AA000929A3 /* Raleway-Medium.ttf in Resources */,
+				3E8E3422233923AA000929A3 /* Raleway-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -418,6 +432,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -467,8 +482,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "The Trek/The Trek.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 20190923;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = KDWFKVYU8J;
 				INFOPLIST_FILE = "The Trek/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -476,6 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -485,8 +504,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "The Trek/The Trek.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 20190923;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_TEAM = KDWFKVYU8J;
 				INFOPLIST_FILE = "The Trek/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -494,6 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jordanlunsford.TheTrek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
