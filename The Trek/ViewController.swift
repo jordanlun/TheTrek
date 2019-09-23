@@ -8,65 +8,9 @@
 //  Copyright © 2016-2017 Jordan Lunsford. All rights reserved.
 //
 
-//Update Notes v. 1.1, Build 1:
-//  Updated for the iPhone X
-
-
-//App Store Submission:
-//  Remove unneeded fonts, images, UI elements
-//  Check:
-//    Try all buttons
-//    Spell check messageList
-//    forceNewGame = false, fastVersionToggle = false
-//    Bundle identifier, version & build
-//    Info.plist "MinimumOSVersion: 10.0.0"
-//  App Description:
-//    Note: Copyright information on a couple of the interface elements can be found at the bottom of the page at jordanlunsford.com/the-trek.
-
-
-
-//UX:
-//  Error handling
-//    Try to restore to last save, if not reset game
-//    Currently sends game end alert on advance and crashes on revert
-
-//  Save gameVersion
-//    If not newest gameVersion, just updated and can send alert
-
-//  Delay game start until after welcome message and notification permission
-
-//  setStoryVersion at safe "checkpoints" (locate new messageIndex)
-//  Error handling (Restart story on error?)
-//    Currently sends game end alert
-//  Re-entering from background needs to check if Ben isn't busy anymore (Do not exit on move to background)
-//    Update BenBusyTimer on move to the foreground
-//    ALSO:
-//      Messages begin pushing before view has appeared. Probably due to update in viewDidAppear. Reload table in viewDidLoad?
-//      Screenshot on move to background not working properly
-//  iOS 9 support
-//  Ben is writing... (append to messagesViewed then remove, create separate object)
-//  Custom table
-//  Variable message speed
-//  Advance forward, backward a specified number of KEY, RESPONSE, RESEARCH, SYS messages
-
-
-//UI:
-//  Only in fast version, buttons flash previous responses
-
-//  Sound
-
-//  Try fonts: Exo 2, Lato, Open Sans
-//  Buttons stay, response appears (?)
-//  Challenge: Buttons slide up from bottom
-//  Allow messages to flow under response bar
-
-//  Launch screen?
-
-
 
 import UIKit
 import UserNotifications
-
 
 
 var alertParameters = [String]()

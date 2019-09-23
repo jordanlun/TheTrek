@@ -7,34 +7,6 @@
 //
 
 
-
-//STORY:
-//  Tremor if keep to valley
-
-//  Explain Ben is Busy (Alert, notification explanation, or more Ben)
-
-//  Option to search the wreckage twice
-
-//  Lack of food
-//    Mention eating the pilot
-//    Eating snow, donut
-
-//  Giving up, coax to keep going
-
-
-//  Do something after Ben takes a break
-//  Remind what to Google (rework that line)
-//  What does Ben do? What kind of business trip (Analytics?)
-
-//  Check the line before loads of help
-
-//  More chances for interaction
-//  More emotion
-
-//  Ideas: Hallucinations, details (peeling skin, frostbite, blisters, numb mouth), cherries
-
-
-
 import Foundation
 
 
