@@ -3,4 +3,4 @@
 
 Although this project is just a sample of my work in iOS, it does stand as the largest, most rebust project I've worked on, incorporating user data, a dynamic messaging system, and system notifications. It took roughly 240 hours to develop, primarily as coursework for my Media Communications degree. Since then my work on it has been mainly to optimize it for newer devices and iOS versions.
 
-<a href="https://apps.apple.com/gr/app/the-trek-bens-story/id1212062969" target="_blank">View on the App Store</a>
+<a href="https://apps.apple.com/app/the-trek-bens-story/id1212062969" target="_blank">View on the App Store</a>
